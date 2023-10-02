@@ -3,7 +3,7 @@
 
 
 <span title="hey .thanks for the visit 👾"> 
-<h1 align="center">Hey 👋</h1></span>
+<h1 align="center">👋</h1></span>
 
 <span title="🐞 ">
 
