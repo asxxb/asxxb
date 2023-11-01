@@ -18,6 +18,8 @@
 <p style="font-size:48px">A self-proclaimed <i>geek</i> who's passionate about all things nerdy. I'm a wannabe enthusiast who's always looking to learn more. Follow me on my adventures as I explore the world of error!</p>
 
 <h3 align="left">Connect with me: https://twitter.com/aseeb_shibin</h3>
+
+[![An image of @asxxb's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/asxxb)](https://holopin.io/@asxxb)
 <p align="left">
 </p>
 <h3 align="left">Support:</h3>
