@@ -16,8 +16,9 @@
 
 <p align="left"> <a href="https://twitter.com/aseeb_shibin" ><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
 <p style="font-size:48px">A self-proclaimed <i>geek</i> who's passionate about all things nerdy. I'm a wannabe enthusiast who's always looking to learn more. Follow me on my adventures as I explore the world of error!</p>
+![68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f56674344417a634b767352364f4d307557672f67697068792e676966](https://github.com/asxxb/asxxb/assets/55710160/c2c3a452-5324-44b7-80a5-950e09f34db2)
 
-<h3 align="left">Connect with me: https://twitter.com/aseeb_shibin</h3> ![Alt Text](https://camo.githubusercontent.com/be37cdc8f930300096c506ad4574eaae977c48fbb2705cfcb92f4eeab8282c7a/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f56674344417a634b767352364f4d307557672f67697068792e676966)
+<h3 align="left">Connect with me: https://twitter.com/aseeb_shibin</h3> 
 
 [![An image of @asxxb's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/asxxb)](https://holopin.io/@asxxb)
 
