@@ -20,7 +20,7 @@
 <h3 align="left">Connect with me: https://twitter.com/aseeb_shibin</h3>
 
 [![An image of @asxxb's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/asxxb)](https://holopin.io/@asxxb)
-![Holopin](https://holopin.onrender.com/vinitshahdeo?style=flat-square)
+
 
 <p align="left">
 </p>
