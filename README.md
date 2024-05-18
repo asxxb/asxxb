@@ -11,7 +11,7 @@
 
 
 
-![](https://komarev.com/ghpvc/?username=asxxb)
+
 
 ## 🌐 Socials:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/aseebshibin) 
@@ -23,8 +23,7 @@
 ![](https://github-readme-streak-stats.herokuapp.com/?user=asxxb&theme=dark&hide_border=false)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=asxxb&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
-### 😂 Random Dev Meme
-<img src='https://randommeme-five.vercel.app/' style="height: 400px;"/>
+
 
 ---
  <a href="https://app.daily.dev/aseebshibin"><img src="https://api.daily.dev/devcards/v2/WMyzl8NVIjjcz7auSoNLw.png?type=wide&r=9v3" width="652" alt="Aseeb shibin's Dev Card"/></a>
