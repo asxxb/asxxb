@@ -1,9 +1,3 @@
-<p align="center">
-  <img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/7b282ec6-fcc3-4600-90a7-2c3140549f58" width="400" />
-  <a href="https://app.daily.dev/aseebshibin">
-    <img src="https://api.daily.dev/devcards/v2/WMyzl8NVIjjcz7auSoNLw.png?type=wide&r=9v3" width="652" alt="Aseeb shibin's Dev Card"/>
-  </a>
-</p>
 
 
 
