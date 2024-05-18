@@ -1,6 +1,5 @@
-<picture>
-  <img src="/github-metrics.svg" alt="Metrics">
-</picture>
+![Isometric Commit Calendar](./isometric-calendar.svg)
+
 
 
 
