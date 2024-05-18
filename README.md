@@ -1,4 +1,3 @@
-![Isometric Commit Calendar](./isometric-calendar.svg)
 
 
 
