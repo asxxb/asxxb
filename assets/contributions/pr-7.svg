@@ -3,32 +3,32 @@
     <rect x="1" y="1" width="338" height="188" rx="14"
       fill="#0d1117" stroke="#30363d"/>
 
-    <image href="data:image/png;base64,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" x="18" y="16"
+    <image href="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAEAAQAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/ANO5T/TpPrUc6fuG+lW7lf8ATZPrUU4xbv8ASpsBShTiptlVVv7eJyjsQw68UlzrmnWkJlnnCIO5HWnZjui0UpjJWXZeLtH1CQxwzkPnAV1wT9K0FvreWQRox3HpxSsF0I6gdahZAaszQ+YuCcc5pnl7RikBsXPF5KT61WnlR7dwp5xVm5+a5l96oPBIkTEjjFUxHOyg/a5c9d1ZM+gT6rqst3JE8tpbBB5fA8wnqM9h0z9a2bj/AI/JPrTtJ1CK6ubq0jYTLEEdowf4gT09fcfSnVdqZVBJ1bMwPFmn21pZGa205bV7aZNssagZ9elbWnmSSW2ZgBIQCw9DjmqOtapF/aUFg/lwRzt5sqOox8uNoA6DJ/lWnZsBexZOOajDp8jZeKa9pZG7Iyr94gfWomovLZLpVV84ByMUEYGKCDVmP+lSfWo7o/6K/wBKJmxdv9ahu5MWsn0qiTyTxLrdxLqNxDDIUjViuFOM44rG07UbrTLxbq1l2Srnr0I9DUN9IzzySNyWJNdEfCV5DbrI0AucNuJhLMCuPpnr+NU1fRjTs7owL67m1G9lupzmRz27D0rX8OavPDqdrbTOZLdpFQqx+7k44qG50kxTSRywy2rKcbXHTjIznFZ2nPs1C2kJHEinP40JWVkD1d2e4vUTGldqiLVAxNSTV3v5Ws5YFi7B1yazZ08RPCyG4tBnjIQ/41rNfW7zSFbiM4Yg4bvSSXduYzulXP1ptknjOowiLUJo5RjbKQyj681r6jrUKfZV0u7uyvl/PHcSFtjZ6DP9Ki8UTQR63cCNOCQSw5ySM1gvhh94Y9garrcd9LFyfUJ7kEXDl2b+PJH6Dg/jUdhama9ggj4LuFBPaq6zGM8xrIMHCvnr68c10vgcRS6tKbjyw8cYaNm4we/86GwOoJ8R4z9qtiP+udQvJ4hz8tzbH/tma6B3tv4pUJ9mqFmhYHE0ePdhWV2OyP/Z" x="18" y="16"
          width="38" height="38"
          preserveAspectRatio="xMidYMid slice"/>
 
     <text x="66" y="29" fill="#f0f6fc"
-      font-size="13" font-weight="600">Python-Scripts</text>
+      font-size="13" font-weight="600">open-source-radar</text>
     <text x="66" y="47" fill="#8b949e"
-      font-size="10">wasmerio</text>
+      font-size="10">TanbirRamim</text>
 
     <line x1="17" y1="66" x2="323" y2="66"
       stroke="#30363d"/>
 
     <text x="18" y="89" fill="#f0f6fc"
-      font-size="12" font-weight="600">feat: add JSON API response comparator</text>
+      font-size="12" font-weight="600">docs: add Zig quickstart</text>
 
     <text x="18" y="111" fill="#c9d1d9"
-      font-size="10">Add Python API Response Comparator Summary Added a Python command-</text>
+      font-size="10">Adds a Zig quickstart guide following the existing language guide </text>
 
     <rect x="18" y="130" width="91" height="24"
       rx="12" fill="#21262d"/>
 
-    <text x="63.5" y="145.5" fill="#58a6ff"
-      font-size="10" text-anchor="middle">● Open</text>
+    <text x="63.5" y="145.5" fill="#3fb950"
+      font-size="10" text-anchor="middle">✓ Merged</text>
 
     <text x="18" y="174" fill="#8b949e"
-      font-size="10">PR #581</text>
+      font-size="10">PR #127</text>
 
     <text x="322" y="174" fill="#58a6ff"
       font-size="10" text-anchor="end">View PR ↗</text>
