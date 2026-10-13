@@ -258,21 +258,51 @@ async function main() {
     rows.push(`<tr>${cells.join("")}</tr>`);
   }
 
-  const section = [
-    START,
-    "## Open-source contributions",
-    "",
-    "<table>",
-    "<tbody>",
-    ...rows,
-    "</tbody>",
-    "</table>",
-    "",
-    cards.length
-      ? `*Showing ${cards.length} public pull requests. Updated automatically.*`
-      : "No eligible public pull requests were found.",
-    END,
-  ].join("\n");
+  // const section = [
+  //   START,
+  //   "## Open-source contributions",
+  //   "",
+  //   "<table>",
+  //   "<tbody>",
+  //   ...rows,
+  //   "</tbody>",
+  //   "</table>",
+  //   "",
+  //   cards.length
+  //     ? `*Showing ${cards.length} public pull requests. Updated automatically.*`
+  //     : "No eligible public pull requests were found.",
+  //   END,
+  // ].join("\n");
+
+  
+const rows = [];
+
+for (let i = 0; i < cards.length; i += 3) {
+  const row = cards.slice(i, i + 3).map(card =>
+    `<a href="${card.url}"><img src="${card.image}" width="260" alt="${escapeXml(card.title)}" /></a>`
+  );
+
+  while (row.length < 3) {
+    row.push("");
+  }
+
+  rows.push(`| ${row.join(" | ")} |`);
+}
+
+const section = [
+  START,
+  "## Open-source contributions",
+  "",
+  "| Contribution | Contribution | Contribution |",
+  "|---|---|---|",
+  ...rows,
+  "",
+  cards.length
+    ? `*Showing ${cards.length} public pull requests. Updated automatically.*`
+    : "No eligible public pull requests were found.",
+  END,
+].join("\n");
+
 
   const readme = fs.readFileSync(README, "utf8");
 
