@@ -14,6 +14,11 @@ on:
 permissions:
   contents: write
 
+# Prevent overlapping runs from updating main simultaneously.
+concurrency:
+  group: update-open-source-cards
+  cancel-in-progress: false
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -21,24 +26,31 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
+      - name: Sync with latest main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
       - name: Generate contribution cards
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/generate-cards.js
 
-      
-      - name: Commit generated cards
+      - name: Commit and push generated cards
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add README.md assets/contributions
+          git add README.md assets/contributions/
 
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
@@ -46,7 +58,4 @@ jobs:
           fi
 
           git commit -m "Update open-source contribution cards"
-
-          git fetch origin main
-          git rebase origin/main
           git push origin HEAD:main
