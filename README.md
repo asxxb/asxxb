@@ -21,7 +21,7 @@
 ## Open-source contributions
 
 
-|:---:|:---:|:---:|
+
 | <a href="https://github.com/adobe/react-spectrum/pull/10768"><img src="./assets/contributions/pr-1.svg" width="260" alt="Fix/table state identity" /></a> | <a href="https://github.com/TanbirRamim/open-source-radar/pull/127"><img src="./assets/contributions/pr-2.svg" width="260" alt="docs: add Zig quickstart" /></a> | <a href="https://github.com/microsoft/fluentui/pull/36871"><img src="./assets/contributions/pr-3.svg" width="260" alt="fix: restore menu list keyboard navigation after reconnect" /></a> |
 | <a href="https://github.com/freeCodeCamp/freeCodeCamp/pull/70853"><img src="./assets/contributions/pr-4.svg" width="260" alt="fix(curriculum): correct queue lab hints" /></a> | <a href="https://github.com/wasmerio/Python-Scripts/pull/581"><img src="./assets/contributions/pr-5.svg" width="260" alt="feat: add JSON API response comparator" /></a> |  |
 
