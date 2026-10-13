@@ -32,7 +32,7 @@
 
 
 <p align="left"> <a href="https://twitter.com/aseeb_shibin" ><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
-<p style="font-size:48px">A self-proclaimed <i>geek</i> who's passionate about all things nerdy. I'm a wannabe enthusiast who's always looking to learn more. Follow me on my adventures as I explore the world of error!</p>
+<p style="font-size:48px">(oo )</p>
 
 
 <h3 align="left">Connect with me: https://twitter.com/aseeb_shibin</h3> 
