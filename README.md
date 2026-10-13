@@ -25,7 +25,7 @@
 ---
 
 
-<CodeBlock language="markdown" editable>
+
 ## My Open Source Journey
 
 Contributing to open-source projects and learning by solving real-world issues.
@@ -33,7 +33,7 @@ Contributing to open-source projects and learning by solving real-world issues.
 
 <!-- CONTRIBUTIONS:END -->
 
-</CodeBlock>
+
 
 
 
