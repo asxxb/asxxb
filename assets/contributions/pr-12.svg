@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="180" viewBox="0 0 560 180">
+  <rect width="558" height="178" x="1" y="1" rx="14" fill="#0d1117" stroke="#30363d"/>
+  <text x="22" y="32" fill="#8b949e" font-size="12">asxxb/pysong</text>
+  <text x="22" y="62" fill="#f0f6fc" font-size="17" font-weight="600">extra</text>
+  <text x="22" y="86" fill="#c9d1d9" font-size="12">hello</text>
+  <rect x="22" y="112" width="95" height="27" rx="13" fill="#21262d"/>
+  <text x="69" y="130" text-anchor="middle" fill="#3fb950" font-size="12">Merged</text>
+  <text x="22" y="160" fill="#8b949e" font-size="11">PR #4 · Updated 2023-10-02</text>
+</svg>

@@ -30,7 +30,25 @@
 
 Contributing to open-source projects and learning by solving real-world issues.
 <!-- CONTRIBUTIONS:START -->
+## Open-source contributions
 
+[![Fix/table state identity](./assets/contributions/pr-1.svg)](https://github.com/adobe/react-spectrum/pull/10768)
+[![docs: add Zig quickstart](./assets/contributions/pr-2.svg)](https://github.com/TanbirRamim/open-source-radar/pull/127)
+[![fix: restore menu list keyboard navigation after reconnect](./assets/contributions/pr-3.svg)](https://github.com/microsoft/fluentui/pull/36871)
+[![fix(curriculum): correct queue lab hints](./assets/contributions/pr-4.svg)](https://github.com/freeCodeCamp/freeCodeCamp/pull/70853)
+[![feat: add JSON API response comparator](./assets/contributions/pr-5.svg)](https://github.com/wasmerio/Python-Scripts/pull/581)
+[![latest](./assets/contributions/pr-6.svg)](https://github.com/Thegiantsaint/hackrealm/pull/7)
+[![4 responsive](./assets/contributions/pr-7.svg)](https://github.com/Thegiantsaint/hackrealm/pull/6)
+[![4 responsive](./assets/contributions/pr-8.svg)](https://github.com/Thegiantsaint/hackrealm/pull/5)
+[![header home button has dropdown removed](./assets/contributions/pr-9.svg)](https://github.com/Thegiantsaint/hackrealm/pull/3)
+[![Aseeb new](./assets/contributions/pr-10.svg)](https://github.com/Thegiantsaint/hackrealm/pull/2)
+[![..](./assets/contributions/pr-11.svg)](https://github.com/Thegiantsaint/hackrealm/pull/1)
+[![extra](./assets/contributions/pr-12.svg)](https://github.com/asxxb/pysong/pull/4)
+[![Create yolo.js](./assets/contributions/pr-13.svg)](https://github.com/asxxb/pysong/pull/3)
+[![Create hello.js](./assets/contributions/pr-14.svg)](https://github.com/asxxb/pysong/pull/2)
+[![Create main.js](./assets/contributions/pr-15.svg)](https://github.com/asxxb/pysong/pull/1)
+
+*Showing up to 15 recently updated public pull requests.*
 <!-- CONTRIBUTIONS:END -->
 
 
