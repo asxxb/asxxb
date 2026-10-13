@@ -56,8 +56,6 @@ function cleanText(value = "") {
     .trim();
 }
 
-// Embed the repository owner's GitHub avatar inside the SVG.
-// This avoids relying on an external image loading inside the card.
 async function getAvatarDataUri(owner) {
   if (!avatarCache.has(owner)) {
     avatarCache.set(owner, (async () => {
@@ -68,7 +66,8 @@ async function getAvatarDataUri(owner) {
 
         if (!response.ok) return null;
 
-        const contentType = response.headers.get("content-type") || "";
+        const contentType =
+          response.headers.get("content-type") || "";
 
         if (!contentType.startsWith("image/")) return null;
 
@@ -188,7 +187,7 @@ async function main() {
 
   const results = await get(searchUrl.toString());
 
-  // Exclude entire repositories before limiting the results.
+  // Exclude entire repositories before limiting results.
   const prs = results.items
     .filter(pr => {
       const repo = pr.repository_url
@@ -225,7 +224,7 @@ async function main() {
     );
   }
 
-  // Delete old generated cards that are no longer needed.
+  // Delete obsolete generated SVG cards.
   for (const file of fs.readdirSync(OUTPUT)) {
     if (
       /^pr-\d+\.svg$/.test(file) &&
@@ -235,75 +234,40 @@ async function main() {
     }
   }
 
-  // Build a responsive-looking three-column HTML table.
+  // Generate three contribution cards per Markdown table row.
   const rows = [];
 
   for (let i = 0; i < cards.length; i += 3) {
-    const cells = cards.slice(i, i + 3).map(card => `
-      <td width="33.33%" valign="top" align="center">
-        <a href="${escapeXml(card.url)}">
-          <img
-            src="${escapeXml(card.image)}"
-            width="100%"
-            alt="${escapeXml(card.title)}"
-          />
-        </a>
-      </td>
-    `);
+    const row = cards.slice(i, i + 3).map(card => {
+      const imagePath = escapeXml(card.image);
+      const url = escapeXml(card.url);
+      const title = escapeXml(card.title);
 
-    while (cells.length < 3) {
-      cells.push('<td width="33.33%"></td>');
+      return `<a href="${url}"><img src="${imagePath}" width="260" alt="${title}" /></a>`;
+    });
+
+    while (row.length < 3) {
+      row.push("");
     }
 
-    rows.push(`<tr>${cells.join("")}</tr>`);
+    rows.push(`| ${row.join(" | ")} |`);
   }
 
-  // const section = [
-  //   START,
-  //   "## Open-source contributions",
-  //   "",
-  //   "<table>",
-  //   "<tbody>",
-  //   ...rows,
-  //   "</tbody>",
-  //   "</table>",
-  //   "",
-  //   cards.length
-  //     ? `*Showing ${cards.length} public pull requests. Updated automatically.*`
-  //     : "No eligible public pull requests were found.",
-  //   END,
-  // ].join("\n");
+  const section = [
+    START,
+    "## Open-source contributions",
+    "",
+    "| Contribution | Contribution | Contribution |",
+    "|:---:|:---:|:---:|",
+    ...rows,
+    "",
+    cards.length
+      ? `*Showing ${cards.length} public pull requests. Updated automatically.*`
+      : "No eligible public pull requests were found.",
+    END,
+  ].join("\n");
 
-  
-const rows = [];
-
-for (let i = 0; i < cards.length; i += 3) {
-  const row = cards.slice(i, i + 3).map(card =>
-    `<a href="${card.url}"><img src="${card.image}" width="260" alt="${escapeXml(card.title)}" /></a>`
-  );
-
-  while (row.length < 3) {
-    row.push("");
-  }
-
-  rows.push(`| ${row.join(" | ")} |`);
-}
-
-const section = [
-  START,
-  "## Open-source contributions",
-  "",
-  "| Contribution | Contribution | Contribution |",
-  "|---|---|---|",
-  ...rows,
-  "",
-  cards.length
-    ? `*Showing ${cards.length} public pull requests. Updated automatically.*`
-    : "No eligible public pull requests were found.",
-  END,
-].join("\n");
-
-
+  // Replace only the generated section in README.md.
   const readme = fs.readFileSync(README, "utf8");
 
   const startIndex = readme.indexOf(START);
