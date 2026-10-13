@@ -4,6 +4,12 @@ const path = require("node:path");
 
 const USER = "asxxb";
 
+const EXCLUDED_REPOS = new Set([
+  "Thegiantsaint/hackrealm",
+  "asxxb/pysong",
+]);
+
+
 const EXCLUDED_PRS = new Set([
   "Thegiantsaint/hackrealm#7",
   "Thegiantsaint/hackrealm#6",
@@ -72,7 +78,20 @@ async function main() {
   );
 
   const cards = [];
-  const prs = results.items.slice(0, 30);
+  
+
+const prs = results.items
+  .filter(pr => {
+    const repo = pr.repository_url
+      .split("/")
+      .slice(-2)
+      .join("/");
+
+    return !EXCLUDED_REPOS.has(repo);
+  })
+  .slice(0, 30);
+
+
 
   for (let i = 0; i < prs.length; i++) {
     const pr = prs[i];
