@@ -3,6 +3,20 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const USER = "asxxb";
+
+const EXCLUDED_PRS = new Set([
+  "Thegiantsaint/hackrealm#7",
+  "Thegiantsaint/hackrealm#6",
+  "Thegiantsaint/hackrealm#5",
+  "Thegiantsaint/hackrealm#3",
+  "Thegiantsaint/hackrealm#2",
+  "Thegiantsaint/hackrealm#1",
+  "asxxb/pysong#4",
+  "asxxb/pysong#3",
+  "asxxb/pysong#2",
+  "asxxb/pysong#1",
+]);
+
 const API = "https://api.github.com";
 const OUTPUT = "assets/contributions";
 const README = "README.md";
