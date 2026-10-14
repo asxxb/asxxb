@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    width="340" height="190" viewBox="0 0 340 190">
+    <rect x="1" y="1" width="338" height="188" rx="14"
+      fill="#0d1117" stroke="#30363d"/>
+
+    <image href="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAEAAQAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APDKKKK6yQooIIJBGCOoNFABRRQASQAMk9AKACiiigAr0/wrZ2PgXwcvjjVLaO51W7cx6LayjKgjrMw9u34f3gR5hXpvxsb7J4l0rQovltdK0yGGNB0BOcn8QF/KplroB51f31zqeoXF9eSGW5uJGllcjG5mOSa6P4ceG4vFfjiy0q5jd7R1ke42nBVAh5z252/iRXKV9J/BjwnH4T8KXXijV9sE95D5m6TjybZfmyf97G76BaU3ZDPE/Hng268EeJZdMmYywMPMtp8Y8yM9PxHIP09xWBYX1zpmoW99ZyGK5t5FlicDO1lOQa91+Nqp4r0rwndaPby3M93DPcwqi/OYfLR2yPYY4rwKnF3WoHp/iqys/HXg5vHOl20dtqdo4i1q1iGFJPSZR79/x/uknzCvTfgm/wBr8SaroMpzaarpksMiHoSOh/AFvzrzKiOmggr0z4zL9u1XQvEUfNvqulRSBv8AbX7w/AMteZ16j4NvbDxt4QbwFrFyltfQuZtFu5Ogc5JiJ9Dk/XPqBRLTUDifB1hb6p400WxuwDbz3sUcin+JSwyPx6fjXs3x98YyWdtbeE7F9n2iMT3ZX+5nCJ+JBJ+g9a8Lura90HWpbaUmC+sZypKNkpIjdQR6Eda0vGHiWTxbrS6xcLsupII0nUfd3oNpK+xwDjsSR7lNXaYz6i+HepaNd+CvDyWt3ay3MVhHCVDqZFYIN646jleR7V8t+NLa2s/HGu21mFFvFfTLGq9FAc8D6dPwqPwzrjeGtV/teDJvYI3W1HYOyldx9lBJx3OO2ao2Vpd61q8FnBma8vJhGm9vvuxxyT7nrRGNm2B6F8GYzZapr3iOTi20nS5XLf7bfdH4hWrzKvUfGV9Y+CfCK+AdHuUub2ZxNrV3GeC4xiIH0GB+XqTXl1OOuogoooqgAkkkk5JooooAKASCCDgjvRRQAUUUUAf/2Q==" x="18" y="16"
+         width="38" height="38"
+         preserveAspectRatio="xMidYMid slice"/>
+
+    <text x="66" y="29" fill="#f0f6fc"
+      font-size="13" font-weight="600">freeCodeCamp</text>
+    <text x="66" y="47" fill="#8b949e"
+      font-size="10">freeCodeCamp</text>
+
+    <line x1="17" y1="66" x2="323" y2="66"
+      stroke="#30363d"/>
+
+    <text x="18" y="89" fill="#f0f6fc"
+      font-size="12" font-weight="600">fix(curriculum): correct queue lab hints</text>
+
+    <text x="18" y="111" fill="#c9d1d9"
+      font-size="10">Checklist: &lt;!-- Please follow this checklist and put an x in each </text>
+
+    <rect x="18" y="130" width="91" height="24"
+      rx="12" fill="#21262d"/>
+
+    <text x="63.5" y="145.5" fill="#3fb950"
+      font-size="10" text-anchor="middle">✓ Merged</text>
+
+    <text x="18" y="174" fill="#8b949e"
+      font-size="10">PR #70853</text>
+
+    <text x="322" y="174" fill="#58a6ff"
+      font-size="10" text-anchor="end">View PR ↗</text>
+  </svg>
