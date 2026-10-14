@@ -1,10 +1,11 @@
 
 
 
-
-<a href="https://dungeon.aseebshibin4.workers.dev/feed/0"><img src="https://dungeon.aseebshibin4.workers.dev/aquarium/0.svg" width="100" height="200"></a><a href="https://dungeon.aseebshibin4.workers.dev/feed/1"><img src="https://dungeon.aseebshibin4.workers.dev/aquarium/1.svg" width="100" height="200"></a><a href="https://dungeon.aseebshibin4.workers.dev/feed/2"><img src="https://dungeon.aseebshibin4.workers.dev/aquarium/2.svg" width="100" height="200"></a><a href="https://dungeon.aseebshibin4.workers.dev/feed/3"><img src="https://dungeon.aseebshibin4.workers.dev/aquarium/3.svg" width="100" height="200"></a><a href="https://dungeon.aseebshibin4.workers.dev/feed/4"><img src="https://dungeon.aseebshibin4.workers.dev/aquarium/4.svg" width="100" height="200"></a><a href="https://dungeon.aseebshibin4.workers.dev/feed/5"><img src="https://dungeon.aseebshibin4.workers.dev/aquarium/5.svg" width="100" height="200"></a>
-
-<img src="https://dungeon.aseebshibin4.workers.dev/aquarium-score.svg" alt="times fed">
+<div align="center">
+  <a href="https://koi-pond.aseebshibin4.workers.dev/feed">
+    <img src="https://koi-pond.aseebshibin4.workers.dev/koi.svg" alt="Pixel koi pond. Click to feed the fish." width="600">
+  </a>
+</div>
 
 
 
