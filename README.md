@@ -4,7 +4,7 @@
 
 
 
-
+<img src="fly.svg" alt="pixel fly" width="100%">
 
 
 
