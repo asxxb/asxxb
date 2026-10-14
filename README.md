@@ -36,24 +36,5 @@
 
 
 
-# 🏰 Dungeon Crawler
-
-You are 🧙. Click an arrow to move. Walk into 👹 to attack, grab 💰, drink 🧪, and reach 🪜 to go deeper.
-
-<img src="https://dungeon.aseebshibin4.workers.dev/board.svg" alt="Dungeon board" width="432">
-
-|   |   |   |
-|:-:|:-:|:-:|
-|   | [⬆️](https://dungeon.aseebshibin4.workers.dev/move/up) |   |
-| [⬅️](https://dungeon.aseebshibin4.workers.dev/move/left) | [⏳](https://dungeon.aseebshibin4.workers.dev/move/wait) | [➡️](https://dungeon.aseebshibin4.workers.dev/move/right) |
-|   | [⬇️](https://dungeon.aseebshibin4.workers.dev/move/down) |   |
-
-[🔄 New game](https://dungeon.aseebshibin4.workers.dev/new)
-
-
-
-<h3 align="left">Support:</h3>
-<p ><a href="https://www.buymeacoffee.com/aseebshibin"> <img align="center" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="bappi2097" /></a></p><br><br>
-
 
 
