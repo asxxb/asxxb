@@ -2,9 +2,11 @@
 
 
 
+<a href="https://dungeon.aseebshibin4.workers.dev/swat/0"><img src="https://dungeon.aseebshibin4.workers.dev/fly/0.svg" width="100" height="100"></a><a href="https://dungeon.aseebshibin4.workers.dev/swat/1"><img src="https://dungeon.aseebshibin4.workers.dev/fly/1.svg" width="100" height="100"></a><a href="https://dungeon.aseebshibin4.workers.dev/swat/2"><img src="https://dungeon.aseebshibin4.workers.dev/fly/2.svg" width="100" height="100"></a><a href="https://dungeon.aseebshibin4.workers.dev/swat/3"><img src="https://dungeon.aseebshibin4.workers.dev/fly/3.svg" width="100" height="100"></a><a href="https://dungeon.aseebshibin4.workers.dev/swat/4"><img src="https://dungeon.aseebshibin4.workers.dev/fly/4.svg" width="100" height="100"></a><a href="https://dungeon.aseebshibin4.workers.dev/swat/5"><img src="https://dungeon.aseebshibin4.workers.dev/fly/5.svg" width="100" height="100"></a>
 
+<img src="https://dungeon.aseebshibin4.workers.dev/fly-score.svg" alt="flies swatted">
 
-<img src="fly.svg" alt="pixel fly" width="100%">
+<!-- <img src="fly.svg" alt="pixel fly" width="100%"> -->
 
 
 
