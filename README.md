@@ -1,11 +1,6 @@
 
 
 
-<div align="center">
-  <a href="https://koi-pond.aseebshibin4.workers.dev/feed">
-    <img src="https://koi-pond.aseebshibin4.workers.dev/koi.svg" alt="Pixel koi pond. Click to feed the fish." width="100%">
-  </a>
-</div>
 
 
 
