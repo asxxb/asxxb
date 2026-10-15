@@ -3,23 +3,23 @@
     <rect x="1" y="1" width="338" height="188" rx="14"
       fill="#0d1117" stroke="#30363d"/>
 
-    <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABC0lEQVR42u3boYoCURiG4XfEJCIIXsHegNcgyFr3AmxehRbxGuwmi0WsazVP2bhhs5YRTBMENxyFgxfwl3m/9DPlPzwwM+HjgGl2itdw+/poAYPA3XXv8HcDWB7pAp3A3dXqkztAO3s4AC6Bh9gAs+c8BxaBu4fAD0Cr6a+AAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCBAY5JXYzWprorKKZvL4N0VxgBZPc722iW1tFEpmfb3AI9vxsAocPe6mHB+/wZ0iK2oN8D+OY+Cd+8gAfgbFEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEaEryaqwi3aiMSl5Rr0l1VVR+MQaAf2YNIlxfNGW1AAAAAElFTkSuQmCC" x="18" y="16"
+    <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAFW0lEQVR4nOyZb0xT1xvHz/3T0ltK4VYslfID8ivdGJpl/2AJTEelqXNvXBd9oTFZOvZGJq+3aEjcwmaMfWt02YyaJYvZYgJkKy/IMgxuwqyk44/o0KGMP5WOloKUtveecxbshqUpt6ez2w3J/YQQ7r0P3+f53vucc5+0LMYYbGZouQt4WhQDcqMYkBvFgNwoBuRGMSA3igG5UQzIjWJAbhQDcqMYkBs223+YnZ3t6emZnZ3led5ms1mt1qdJDyHs7e0dGhpCCFVXV9vt9ry8vOwkMDGRSKS1tZVl13net2/f1NQUuUgyHo/HYrEkq5lMpsuXL2clQmpgeXm5vr6+oaHh0qVL7e3tRUVFa1nNZvPExES21V+8eJHn+fb29gsXLtTX1yfbcLvduTdw7Ngxi8WysrKSOOzs7ExOuWfPnqyqn56e1mq13d3dicNoNJrcigzDDA4O5tJALBbjeb65uTn5TEor3rp1i9zAiRMnWJYVBGHtjMvlSlZzuVyEUkS7kNfrDYVC/f39oigmzvT19aXEXL16lURqLVgUxevXrycOIYRerzc54Nq1a4RSRLtQOBwGAIyOjjqdzpaWlpmZmePHj6fEzM/PE6ZcC96/f//JkydNJtOZM2eGh4dTMkIIGYbJrEXymFJuT1rOnz9P3kIOh0NaraamBkKYsxbasWOH2WyWCGAYprGxkUQqQVNTk3SAzWajabKXLOE9O336tITIoUOHRFEkfwJ+v99oNG6kptPpxsbGCKUIDMQE/GAu/vOd1rcOps1XW1vr9/vJq0/g8XgKCgrSVM9pu92fwZEHOBDOhYGHIfzDEOrxJX6+/PCTcqNpLZmhQH/0/aOBQCDb6jHGEML+/n776+tapenFV0e+uLKWDt8Yx9G4tA4l9Q1NeBl571Lrr0MEb09OBMILem3+9koLW1XKWqWWhxQQwp9uB/wPx6cmMcD/31ZmLk7tK6zn6LpnJDSkDIhjk8x0KEMNeSy7c3uWhf+tHwgzv9zPGIbqrIxeu9FVqZUeJ9gGBAYghDLHpddfbWHpGLSaQipG6kWGSw2P/EGdQG0UIAC8UsZzNA0hbGtrGxkZISh7dc89cuSIw+FQF+qChSpDWKBA+hQY4OBWbgvHSahJrgEAFoKhlTuThmWkXv+sEMBBFYKVRuP/Smma7u3ttdlsTk0hm64SDP66z4nfd4VYpLJsfHwcABCNRudv/1Y4H83HTErpSzRaKtEZrZVqtVqiwgyjRJGBz39FFwoGheAiiMSAiDBNURo1VZRv2Fqs0WgSYeXl5RRF1am5F9RPmnUBwd9hHABQSqu2ME8Sfbr40FhZmfhbo9Fse746HA7PzC+ApRUsrM5alFoF9FxBsaFMr5cuj2gWUqlUxpISUFIiEVNRUdHQ0HBl4GbCwM145KtI6B4SrPpCmqLuLQWMmD7AFTbm6fxI/DG+/PnBJ68Umqb5x2SsJC0ZWoicjo4Op9PZVmC8J8a7hEcfv/Rys/VZ/eOnH4Ww48H9D7w3yuIIAzBXvs3n8+l0upzkzZkBQRAOHz7c+fU3PKf5/o03a4pS7+hCLNbo+Xb00VJXV9fevXtzkjSXn0qoVKqzZ8/W7XxNROiPaDTlKkToI9/g8GLY7XZnHEWz4x9MARLMzc3Z7XYagJbq5359+wB2vSe88+53dkdtcTHHcefOnYvHM4wG2ZJjAxjjxcXFU6dOVVRUAACMGk0+y9I0vXv37r6+vqwmVkJytgaSQQiFQqGBgQGfz6fX63ft2lVVVaXVbjgOPA3/ioH/kk3/0aJiQG4UA3KjGJAbxYDcKAbkRjEgN4oBudn0Bv4MAAD//+ugN4PVLBj7AAAAAElFTkSuQmCC" x="18" y="16"
          width="38" height="38"
          preserveAspectRatio="xMidYMid slice"/>
 
     <text x="66" y="29" fill="#f0f6fc"
-      font-size="13" font-weight="600">fluentui</text>
+      font-size="13" font-weight="600">setup-bun</text>
     <text x="66" y="47" fill="#8b949e"
-      font-size="10">microsoft</text>
+      font-size="10">oven-sh</text>
 
     <line x1="17" y1="66" x2="323" y2="66"
       stroke="#30363d"/>
 
     <text x="18" y="89" fill="#f0f6fc"
-      font-size="12" font-weight="600">fix: restore menu list keyboard navigation </text>
+      font-size="12" font-weight="600">fix: reuse existing latest Bun installation</text>
 
     <text x="18" y="111" fill="#c9d1d9"
-      font-size="10">Previous Behavior When a fluent-menu-list element was removed from</text>
+      font-size="10">Summary Fixes 182. - Reuse an existing Bun installation when no ve</text>
 
     <rect x="18" y="130" width="91" height="24"
       rx="12" fill="#21262d"/>
@@ -28,7 +28,7 @@
       font-size="10" text-anchor="middle">● Open</text>
 
     <text x="18" y="174" fill="#8b949e"
-      font-size="10">PR #36871</text>
+      font-size="10">PR #188</text>
 
     <text x="322" y="174" fill="#58a6ff"
       font-size="10" text-anchor="end">View PR ↗</text>
