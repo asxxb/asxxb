@@ -3,16 +3,15 @@
 
 
 
-
 <div align="center">
   <a href="https://koi-pond.aseebshibin4.workers.dev/feed">
     <img src="https://koi-pond.aseebshibin4.workers.dev/koi.svg" alt="Pixel koi pond. Click to feed the fish." width="100%">
   </a>
   <br>
   <a href="https://koi-pond.aseebshibin4.workers.dev/net/asxxb"><img src="https://img.shields.io/badge/Net%20a%20koi-f5b82e?style=for-the-badge" alt="Net a koi"></a>
+  <a href="https://koi-pond.aseebshibin4.workers.dev/map"><img src="https://img.shields.io/badge/Koi%20map-1f8a9e?style=for-the-badge" alt="Koi map"></a>
   <a href="https://koi-pond.aseebshibin4.workers.dev/"><img src="https://img.shields.io/badge/Create%20my%20pond-e8452c?style=for-the-badge" alt="Create my pond"></a>
 </div>
-
 
 
 
