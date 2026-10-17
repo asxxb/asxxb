@@ -80,13 +80,14 @@ const CATEGORIES = [
 ];
 
 // ───────────── Layout ─────────────
-const COLS = 3;
-const CARD_W = 208;
-const CARD_H = 64;
-const GAP_X = 12;
-const GAP_Y = 14;
-const PAD = 16;
-const HEADER_H = 62;
+const COLS = 5;          // cards per row (raise for an even wider/shorter grid)
+const CARD_W = 112;
+const CARD_H = 34;
+const TILE = 26;
+const GAP_X = 8;
+const GAP_Y = 10;
+const PAD = 10;
+const DISPLAY_WIDTH = 640; // width of the image in the README (px)
 const PANEL_W = PAD * 2 + COLS * CARD_W + (COLS - 1) * GAP_X;
 
 // ───────────── 5x7 pixel font ─────────────
@@ -214,69 +215,53 @@ function card(skill, x, y) {
   const name = skill.name.toUpperCase();
   const abbr = skill.abbr.toUpperCase();
 
-  // icon tile
-  const tx = x + 10;
-  const ty = y + 10;
-  const abbrScale = abbr.length <= 2 ? 3 : 2;
+  const tx = x + 4;
+  const ty = y + 4;
+  const abbrScale = abbr.length <= 2 ? 2 : 1;
   const aw = textWidth(abbr, abbrScale);
-  const ax = Math.round(tx + 22 - aw / 2);
-  const ay = ty + Math.round((44 - 7 * abbrScale) / 2);
+  const ax = Math.round(tx + TILE / 2 - aw / 2);
+  const ay = ty + Math.round((TILE - 7 * abbrScale) / 2);
   const abbrColor = luminance(skill.color) > 0.6 ? "#1b1f24" : "#ffffff";
-
-  // name
-  const nameScale = textWidth(name, 2) <= CARD_W - 64 - 8 ? 2 : 1;
-  const nameY = nameScale === 2 ? y + 16 : y + 19;
 
   return `
   <g>
     <title>${esc(skill.name)}</title>
-    <path d="${notched(x + 4, y + 4, CARD_W, CARD_H, 4)}" fill="${ac}" fill-opacity="0.28"/>
-    <path d="${notched(x, y, CARD_W, CARD_H, 4)}" fill="${ac}"/>
-    <path d="${notched(x + 2, y + 2, CARD_W - 4, CARD_H - 4, 2)}" fill="#161b22"/>
+    <path d="${notched(x + 2, y + 2, CARD_W, CARD_H, 2)}" fill="${ac}" fill-opacity="0.28"/>
+    <path d="${notched(x, y, CARD_W, CARD_H, 2)}" fill="${ac}"/>
+    <path d="${notched(x + 1, y + 1, CARD_W - 2, CARD_H - 2, 1)}" fill="#161b22"/>
 
-    <path d="${notched(tx, ty, 44, 44, 4)}" fill="#ffffff" fill-opacity="0.3"/>
-    <path d="${notched(tx + 2, ty + 2, 40, 40, 2)}" fill="${skill.color}"/>
-    <rect x="${tx + 4}" y="${ty + 2}" width="36" height="4" fill="#ffffff" fill-opacity="0.22"/>
-    <rect x="${tx + 4}" y="${ty + 38}" width="36" height="4" fill="#000000" fill-opacity="0.22"/>
+    <path d="${notched(tx, ty, TILE, TILE, 2)}" fill="#ffffff" fill-opacity="0.3"/>
+    <path d="${notched(tx + 1, ty + 1, TILE - 2, TILE - 2, 1)}" fill="${skill.color}"/>
+    <rect x="${tx + 2}" y="${ty + 1}" width="${TILE - 4}" height="2" fill="#ffffff" fill-opacity="0.22"/>
+    <rect x="${tx + 2}" y="${ty + TILE - 3}" width="${TILE - 4}" height="2" fill="#000000" fill-opacity="0.22"/>
     ${pixelText(abbr, ax, ay, abbrScale, abbrColor)}
 
-    ${pixelText(name, x + 64, nameY, nameScale, "#f0f6fc")}
+    ${pixelText(name, x + 36, y + 10, 1, "#f0f6fc")}
 
-    <rect x="${x + 64}" y="${y + 42}" width="6" height="6" fill="${ac}"/>
-    <rect x="${x + 74}" y="${y + 42}" width="6" height="6" fill="${ac}" fill-opacity="0.6"/>
-    <rect x="${x + 84}" y="${y + 42}" width="6" height="6" fill="${ac}" fill-opacity="0.3"/>
+    <rect x="${x + 36}" y="${y + 22}" width="2" height="2" fill="${ac}"/>
+    <rect x="${x + 40}" y="${y + 22}" width="2" height="2" fill="${ac}" fill-opacity="0.6"/>
+    <rect x="${x + 44}" y="${y + 22}" width="2" height="2" fill="${ac}" fill-opacity="0.3"/>
   </g>`;
 }
 
-function panel(category) {
-  const rows = Math.ceil(category.skills.length / COLS);
-  const height = HEADER_H + rows * CARD_H + (rows - 1) * GAP_Y + 4 + PAD;
+function panel(skills) {
+  const rows = Math.ceil(skills.length / COLS);
+  const height = PAD * 2 + rows * CARD_H + (rows - 1) * GAP_Y + 2;
 
-  // dashed divider under the header
-  let dashes = "";
-  for (let dx = PAD; dx < PANEL_W - PAD - 6; dx += 12) {
-    dashes += `<rect x="${dx}" y="46" width="6" height="2" fill="#30363d"/>`;
-  }
-
-  const cards = category.skills
-    .map((skill, i) => {
-      const col = i % COLS;
-      const row = Math.floor(i / COLS);
-      return card(
+  const cards = skills
+    .map((skill, i) =>
+      card(
         skill,
-        PAD + col * (CARD_W + GAP_X),
-        HEADER_H + row * (CARD_H + GAP_Y)
-      );
-    })
+        PAD + (i % COLS) * (CARD_W + GAP_X),
+        PAD + Math.floor(i / COLS) * (CARD_H + GAP_Y)
+      )
+    )
     .join("\n");
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${PANEL_W}" height="${height}" viewBox="0 0 ${PANEL_W} ${height}" shape-rendering="crispEdges" role="img" aria-label="${esc(category.title)} skills">
-  <title>${esc(category.title)}</title>
-  <path d="${notched(0, 0, PANEL_W, height, 6)}" fill="#30363d"/>
-  <path d="${notched(2, 2, PANEL_W - 4, height - 4, 4)}" fill="#0d1117"/>
-
-  ${pixelText(category.title, PAD, 16, 3, "#f0f6fc")}
-  ${dashes}
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${PANEL_W}" height="${height}" viewBox="0 0 ${PANEL_W} ${height}" shape-rendering="crispEdges" role="img" aria-label="Skills">
+  <title>Skills</title>
+  <path d="${notched(0, 0, PANEL_W, height, 4)}" fill="#30363d"/>
+  <path d="${notched(1, 1, PANEL_W - 2, height - 2, 3)}" fill="#0d1117"/>
   ${cards}
 </svg>
 `;
@@ -286,30 +271,24 @@ function panel(category) {
 function main() {
   fs.mkdirSync(OUTPUT, { recursive: true });
 
-  const keep = new Set();
-  for (const category of CATEGORIES) {
-    const filename = `${category.file}.svg`;
-    fs.writeFileSync(path.join(OUTPUT, filename), panel(category), "utf8");
-    keep.add(filename);
-  }
+  const skills = CATEGORIES.flatMap(c => c.skills);
+  fs.writeFileSync(path.join(OUTPUT, "skills.svg"), panel(skills), "utf8");
 
+  // Remove older per-category SVGs.
   for (const file of fs.readdirSync(OUTPUT)) {
-    if (file.endsWith(".svg") && !keep.has(file)) {
+    if (file.endsWith(".svg") && file !== "skills.svg") {
       fs.unlinkSync(path.join(OUTPUT, file));
     }
   }
 
   const block = [
     START,
-    ...CATEGORIES.map(
-      c =>
-        `<p align="center"><img src="./${OUTPUT}/${c.file}.svg" alt="${esc(c.title)} skills" width="100%" /></p>`
-    ),
+    `<p align="center"><img src="./${OUTPUT}/skills.svg" alt="Skills" width="${DISPLAY_WIDTH}" /></p>`,
     END,
   ].join("\n");
 
   if (!fs.existsSync(README)) {
-    console.log(`Cards written. ${README} not found, so paste this where you want them:\n\n${block}`);
+    console.log(`Card written. ${README} not found, so paste this where you want it:\n\n${block}`);
     return;
   }
 
@@ -319,7 +298,7 @@ function main() {
 
   if (s === -1 || e === -1 || e < s) {
     console.log(
-      `Cards written to ${OUTPUT}/.\nREADME.md has no ${START} / ${END} markers yet.\n` +
+      `Card written to ${OUTPUT}/skills.svg.\nREADME.md has no ${START} / ${END} markers yet.\n` +
       `Put the block below under your Skills heading (replacing the badges):\n\n${block}`
     );
     return;
@@ -330,7 +309,7 @@ function main() {
     readme.slice(0, s) + block + readme.slice(e + END.length),
     "utf8"
   );
-  console.log(`Generated ${CATEGORIES.length} skill panels and updated ${README}.`);
+  console.log(`Generated skills panel (${skills.length} skills) and updated ${README}.`);
 }
 
 main();
