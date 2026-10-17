@@ -57,3 +57,6 @@
    <!-- SKILLS:START -->
 <p align="center"><img src="./assets/skills/skills.svg" alt="Skills" width="574" /></p>
 <!-- SKILLS:END -->
+
+
+[![Run Find Issues](https://img.shields.io/badge/Run-Find%20Issues-2ea043?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/asxxb/asxxb/actions/workflows/find-issues.yml)
