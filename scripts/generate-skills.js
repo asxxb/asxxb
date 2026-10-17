@@ -41,8 +41,8 @@ const CATEGORIES = [
       { name: "Laravel", abbr: "LV", color: "#FF2D20" },
       { name: "Bootstrap", abbr: "BS", color: "#8511FA" },
       { name: "Firebase", abbr: "FB", color: "#039BE5" },
-      { name: "Google Cloud", abbr: "GCP", color: "#4285F4" },
-      { name: "GitHub Pages", abbr: "GH", color: "#121013" },
+      { name: "GCloud", abbr: "GCP", color: "#4285F4" },
+      { name: "GH Pages", abbr: "GH", color: "#121013" },
       { name: "Apache", abbr: "AP", color: "#D42029" },
     ],
   },
@@ -74,21 +74,21 @@ const CATEGORIES = [
     skills: [
       { name: "Adobe", abbr: "AD", color: "#FF0000" },
       { name: "GIMP", abbr: "GI", color: "#657D8B" },
-      { name: "Illustrator", abbr: "AI", color: "#FF9A00" },
+      { name: "Illustr.", abbr: "AI", color: "#FF9A00" },
     ],
   },
 ];
 
 // ───────────── Layout ─────────────
-const COLS = 5;          // cards per row (raise for an even wider/shorter grid)
-const CARD_W = 112;
-const CARD_H = 34;
+const COLS = 10;         // cards per row
+const CARD_W = 64;
+const CARD_H = 48;
 const TILE = 26;
-const GAP_X = 8;
-const GAP_Y = 10;
+const GAP_X = 6;
+const GAP_Y = 8;
 const PAD = 10;
-const DISPLAY_WIDTH = 640; // width of the image in the README (px)
 const PANEL_W = PAD * 2 + COLS * CARD_W + (COLS - 1) * GAP_X;
+const DISPLAY_WIDTH = PANEL_W; // width of the image in the README (px)
 
 // ───────────── 5x7 pixel font ─────────────
 const GLYPH_DATA = `
@@ -215,13 +215,19 @@ function card(skill, x, y) {
   const name = skill.name.toUpperCase();
   const abbr = skill.abbr.toUpperCase();
 
-  const tx = x + 4;
-  const ty = y + 4;
+  const nameW = textWidth(name, 1);
+  if (nameW > CARD_W - 4) {
+    throw new Error(`"${skill.name}" is too wide for a card. Use a shorter name.`);
+  }
+
+  const tx = x + Math.round((CARD_W - TILE) / 2);
+  const ty = y + 5;
   const abbrScale = abbr.length <= 2 ? 2 : 1;
   const aw = textWidth(abbr, abbrScale);
   const ax = Math.round(tx + TILE / 2 - aw / 2);
   const ay = ty + Math.round((TILE - 7 * abbrScale) / 2);
   const abbrColor = luminance(skill.color) > 0.6 ? "#1b1f24" : "#ffffff";
+  const nx = Math.round(x + CARD_W / 2 - nameW / 2);
 
   return `
   <g>
@@ -236,11 +242,7 @@ function card(skill, x, y) {
     <rect x="${tx + 2}" y="${ty + TILE - 3}" width="${TILE - 4}" height="2" fill="#000000" fill-opacity="0.22"/>
     ${pixelText(abbr, ax, ay, abbrScale, abbrColor)}
 
-    ${pixelText(name, x + 36, y + 10, 1, "#f0f6fc")}
-
-    <rect x="${x + 36}" y="${y + 22}" width="2" height="2" fill="${ac}"/>
-    <rect x="${x + 40}" y="${y + 22}" width="2" height="2" fill="${ac}" fill-opacity="0.6"/>
-    <rect x="${x + 44}" y="${y + 22}" width="2" height="2" fill="${ac}" fill-opacity="0.3"/>
+    ${pixelText(name, nx, y + 36, 1, "#f0f6fc")}
   </g>`;
 }
 
@@ -249,13 +251,18 @@ function panel(skills) {
   const height = PAD * 2 + rows * CARD_H + (rows - 1) * GAP_Y + 2;
 
   const cards = skills
-    .map((skill, i) =>
-      card(
+    .map((skill, i) => {
+      const row = Math.floor(i / COLS);
+      const col = i % COLS;
+      // center a partially filled last row
+      const inRow = Math.min(COLS, skills.length - row * COLS);
+      const offset = ((COLS - inRow) * (CARD_W + GAP_X)) / 2;
+      return card(
         skill,
-        PAD + (i % COLS) * (CARD_W + GAP_X),
-        PAD + Math.floor(i / COLS) * (CARD_H + GAP_Y)
-      )
-    )
+        Math.round(PAD + offset + col * (CARD_W + GAP_X)),
+        PAD + row * (CARD_H + GAP_Y)
+      );
+    })
     .join("\n");
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${PANEL_W}" height="${height}" viewBox="0 0 ${PANEL_W} ${height}" shape-rendering="crispEdges" role="img" aria-label="Skills">
