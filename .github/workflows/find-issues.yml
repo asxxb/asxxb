@@ -1,0 +1,36 @@
+name: Find Issues
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # every Monday
+  workflow_dispatch:
+
+# Read-only: this workflow never pushes, so it can't conflict with your others.
+permissions:
+  contents: read
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Find issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional LLM provider. Without a key you get heuristic estimates.
+          NSCALE_SERVICE_TOKEN: ${{ secrets.NSCALE_SERVICE_TOKEN }}
+        run: node scripts/find-issues.js
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue-report
+          path: issue-report.md
