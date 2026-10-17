@@ -21,10 +21,10 @@ const LANGUAGES = [
 const LABELS = ["good first issue", "help wanted"];
 
 const MAX_AGE_DAYS = 60;      // only issues updated within this window
-const MAX_COMMENTS = 5;       // skip issues that are already crowded
+const MAX_COMMENTS = 0;       // 0 = only issues nobody has commented on yet
 const MIN_STARS = 100;        // skip tiny/abandoned repos
 const REPO_ACTIVE_DAYS = 90;  // repo must have been pushed to recently
-const PER_QUERY = 15;         // results per language+label search
+const PER_QUERY = 25;         // results per language search
 const MAX_RESULTS = 12;       // issues in the final report
 
 const EXCLUDED_REPOS = new Set([
@@ -52,15 +52,35 @@ const headers = {
 // ───────────── Helpers ─────────────
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function get(url) {
+async function get(url, attempt = 0) {
   const response = await fetch(url, { headers });
 
   if (response.status === 403 || response.status === 429) {
+    const text = await response.text().catch(() => "");
+    const retryAfter = Number(response.headers.get("retry-after"));
     const remaining = response.headers.get("x-ratelimit-remaining");
-    if (remaining === "0" || response.status === 429) {
-      throw new Error("GitHub rate limit hit. Wait a minute and run again.");
+    const reset = Number(response.headers.get("x-ratelimit-reset"));
+    const isRateLimit =
+      response.status === 429 ||
+      retryAfter > 0 ||
+      remaining === "0" ||
+      /rate limit|abuse|secondary/i.test(text);
+
+    if (isRateLimit && attempt < 3) {
+      let waitMs = 60_000; // secondary limits usually clear within a minute
+      if (retryAfter > 0) waitMs = retryAfter * 1000;
+      else if (remaining === "0" && reset) {
+        waitMs = Math.max(0, reset * 1000 - Date.now()) + 1000;
+      }
+      if (waitMs <= 120_000) {
+        console.log(`  rate limited, waiting ${Math.ceil(waitMs / 1000)}s...`);
+        await sleep(waitMs);
+        return get(url, attempt + 1);
+      }
     }
+    throw new Error(`GitHub API ${response.status}: ${text.slice(0, 160)}`);
   }
+
   if (!response.ok) {
     throw new Error(`GitHub API error ${response.status}: ${url}`);
   }
@@ -98,43 +118,52 @@ async function searchIssues() {
 
   const found = new Map(); // html_url -> issue
 
+  const labelQuery = LABELS.map(l => `"${l}"`).join(","); // comma = OR
+  let skipped = 0;
+
   for (const language of LANGUAGES) {
-    for (const label of LABELS) {
-      const q = [
-        "is:issue",
-        "is:open",
-        `label:"${label}"`,
-        `language:"${language}"`,
-        "no:assignee",
-        "-linked:pr",
-        "archived:false",
-        `comments:<=${MAX_COMMENTS}`,
-        `updated:>=${since}`,
-      ].join(" ");
+    const q = [
+      "is:issue",
+      "is:open",
+      `label:${labelQuery}`,
+      `language:"${language}"`,
+      "no:assignee",
+      "-linked:pr",
+      "archived:false",
+      `comments:<=${MAX_COMMENTS}`,
+      `updated:>=${since}`,
+    ].join(" ");
 
-      const url = new URL(`${API}/search/issues`);
-      url.searchParams.set("q", q);
-      url.searchParams.set("sort", "updated");
-      url.searchParams.set("order", "desc");
-      url.searchParams.set("per_page", String(PER_QUERY));
+    const url = new URL(`${API}/search/issues`);
+    url.searchParams.set("q", q);
+    url.searchParams.set("sort", "updated");
+    url.searchParams.set("order", "desc");
+    url.searchParams.set("per_page", String(PER_QUERY));
 
-      try {
-        const result = await get(url.toString());
-        for (const item of result.items) {
-          const existing = found.get(item.html_url);
-          if (existing) {
-            existing.languages.add(language);
-          } else {
-            found.set(item.html_url, { ...item, languages: new Set([language]) });
-          }
+    try {
+      const result = await get(url.toString());
+      for (const item of result.items) {
+        const existing = found.get(item.html_url);
+        if (existing) {
+          existing.languages.add(language);
+        } else {
+          found.set(item.html_url, { ...item, languages: new Set([language]) });
         }
-        console.log(`  ${language} / ${label}: ${result.items.length}`);
-      } catch (error) {
-        console.warn(`  ${language} / ${label}: skipped (${error.message})`);
       }
-
-      await sleep(2200); // stay under GitHub's search rate limit
+      console.log(`  ${language}: ${result.items.length}`);
+    } catch (error) {
+      skipped++;
+      console.warn(`  ${language}: skipped (${error.message})`);
     }
+
+    await sleep(4000); // stay well under GitHub's search rate limit
+  }
+
+  if (skipped) {
+    console.warn(
+      `\n${skipped} language search(es) were skipped, so the report is incomplete.\n` +
+      `Wait a minute and run again.\n`
+    );
   }
 
   return [...found.values()];
