@@ -3,32 +3,32 @@
     <rect x="1" y="1" width="338" height="188" rx="14"
       fill="#0d1117" stroke="#30363d"/>
 
-    <image href="data:image/png;base64,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" x="18" y="16"
+    <image href="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAEAAQAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AODS5jgi8xSrSMdo/wBkdzVCSSa5kJQssMbYXPUn+gqpLHfXh3lfKj6lyNox/n6VYQ/Z9saMsrqeSDkVjSpKmtNzoxGIlXnzPYnESF1aTLAfiTViSFWm3NHvZTxycL71HFE0jI0598Zx3p1/PLNdFVwoxkADAH4VbitmZJtO6JriZpW3MhEobARRjJHbHXNXLAQzwP5sXmKAAyMA3ryP6j/69avhzT42uI7q44JAySfbr/n+tO8RWUWm6lFqFoNsbOFkTtyM/wAsj8q5lLpDbYppddzEEGgh1EVnFLOx2pG68bvcACsOG/uoY5Ls2cIiibDRGLaBzjGfUVp3V+1rrEsEqfMhdRMU3ZAGVz9eKgmuZLm1d7mAzpct/C21g3QA8ew6Vam0uWpqvUcqd/egrGON9/cMkTMVH3p5M5P+H0rcs7O3sQC6mQd3jf7v1yMVlBUhSMspKJ8qIDgEgAkn866a1s9PuLeJ7m/cFuRGh2kZ68c/nVVKkY+6whSlbmexXmvrKOMiGJhM3A53Nj+lZl1qIWNAbNzlyW52kj0B781uXl9pWlQi0063ja4kz+8b5j9STR4durTU7UaXqdskrxtuUt94isOZxXkzaMYWv2M/SPEVzDeJE7SeQ7AYlzlc9OetdF4h1iya1l04ZafIO4EYU8evJPbj1rL8V2ljbyCC1jjg8tcqqn73PH1PX6cVU1jTLi1kN0sibbpgVx2OM/T8aItcyS0v+gpqPK5Fa/aXzoLsg7bq1XDAfxYAJ/MVUisL5rM+a7JDkELu6n1x2ratGW88MTwEDz7AmaLA5KHkj8P8KyZ76WC1DNcNJ5gwUPQCteljOfPF3hrcqxykQRCSPLRSHcD3IABH5L/OpbT7TPO8gj3swJ3t0UdzTECXE8wkyq+aDtBwSQAD/wCzVZudUacvbWMaxxhcMy5JP496J87l7pcKkVTs9ys99CzfOHMgOCSBg89f51ror2d5bXrNkRgFVGBkYxgH24OK5+aIJDEUI6YyPar9rfkW4+1rcGFnw8iMfm/H1A/nTk7pxkyuS0VOC9TR1C80XVtQWW6vpoS3DlYiceo4Pt6GrGpXFpbSR2lujNbW5xGpJYs/fn6fz9qj8vRY7J59Ov7kuxAa1Y4U+5rHlmaYJ5cbSIDjrjcSefzrGMdFboErNqJr6TdC31h5RFlTA0QjJzvZu3+P0qlqTwXFuSlnvjidlEkZGQi9WxxnoTV6JYdM0trhFKzunAPJVj0/x/Cq8drcHw03lqhmuFLDI+5GOOPqOPzqqU1zc0urt/mzOprpHRIqT2JFtbhMYMWTx0JIzn8BTAgRJI41CyqpAXueP8/nXYWemwzWbOhKuCQVkOCCKzb3ShFK0g2gkAqAeQailiLq0kOUEmZFl4evJpoomINs4DllPJ46etTeILULss4YwIoAOnYmuj026MWgRyEFXtspIH4JUHg/liq2o6dHdb38uXzC2Q8fO7nIGO2KSlyyUpsdWUp6HIrbm1gbIIJO1s9quWphsYP32XZzhI+mfx9K2BpFxEjTXir5IBLCQgMVxyOCR9K5WNGuLgNI3yIody3T2FbS/e7PQUbRj7xcN5c6rMIBgKzHbj8if8+9bel29wupqFiH2a0XOwn5iOpJH5msrRZjDf8A2y3RBHGpX95k7vyHr/Kuo065E0Nxqoi3XBDB4v8AnpKAfzA61jVvdRS0KT926P/Z" x="18" y="16"
          width="38" height="38"
          preserveAspectRatio="xMidYMid slice"/>
 
     <text x="66" y="29" fill="#f0f6fc"
-      font-size="13" font-weight="600">leveldb</text>
+      font-size="13" font-weight="600">fumi</text>
     <text x="66" y="47" fill="#8b949e"
-      font-size="10">google</text>
+      font-size="10">imaaiagent</text>
 
     <line x1="17" y1="66" x2="323" y2="66"
       stroke="#30363d"/>
 
     <text x="18" y="89" fill="#f0f6fc"
-      font-size="12" font-weight="600">Fix POSIX duplicate lock attempts releasing</text>
+      font-size="12" font-weight="600">docs: add structured bug report template</text>
 
     <text x="18" y="111" fill="#c9d1d9"
-      font-size="10">Summary - Reserve the lock filename before opening the lock file t</text>
+      font-size="10">Description This PR adds a structured GitHub issue form for report</text>
 
     <rect x="18" y="130" width="91" height="24"
       rx="12" fill="#21262d"/>
 
-    <text x="63.5" y="145.5" fill="#58a6ff"
-      font-size="10" text-anchor="middle">● Open</text>
+    <text x="63.5" y="145.5" fill="#3fb950"
+      font-size="10" text-anchor="middle">✓ Merged</text>
 
     <text x="18" y="174" fill="#8b949e"
-      font-size="10">PR #1372</text>
+      font-size="10">PR #5</text>
 
     <text x="322" y="174" fill="#58a6ff"
       font-size="10" text-anchor="end">View PR ↗</text>
