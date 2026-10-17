@@ -2,16 +2,17 @@ name: Find Issues
 
 on:
   schedule:
-    - cron: "0 6 * * 1"   # every Monday
-  workflow_dispatch:
+    - cron: "0 6 * * 1"   # every Monday at 06:00 UTC
+  workflow_dispatch:       # lets you run it manually from the Actions tab
 
-# Read-only: this workflow never pushes, so it can't conflict with your others.
+# Read-only: no pushes, no issues, no comments anywhere.
 permissions:
   contents: read
 
 jobs:
   find:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -34,3 +35,4 @@ jobs:
         with:
           name: issue-report
           path: issue-report.md
+          retention-days: 14
