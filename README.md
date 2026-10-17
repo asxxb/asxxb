@@ -28,7 +28,12 @@
 
 <br>
    <!-- SKILLS:START -->
-   <!-- SKILLS:END -->
+<p align="center"><img src="./assets/skills/languages.svg" alt="LANGUAGES skills" width="100%" /></p>
+<p align="center"><img src="./assets/skills/frameworks.svg" alt="FRAMEWORKS + CLOUD skills" width="100%" /></p>
+<p align="center"><img src="./assets/skills/data.svg" alt="DATA + DATABASES skills" width="100%" /></p>
+<p align="center"><img src="./assets/skills/tools.svg" alt="DEV TOOLS skills" width="100%" /></p>
+<p align="center"><img src="./assets/skills/design.svg" alt="DESIGN skills" width="100%" /></p>
+<!-- SKILLS:END -->
 
 
 
