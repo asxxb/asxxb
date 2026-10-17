@@ -4,8 +4,9 @@
 //
 // Usage (from repo root):
 //   GITHUB_TOKEN=$(gh auth token) node scripts/find-issues.js
-//   # optional LLM summaries:
-//   ANTHROPIC_API_KEY=sk-ant-... node scripts/find-issues.js
+//   # optional LLM summaries (pick one provider):
+//   NSCALE_SERVICE_TOKEN=... node scripts/find-issues.js
+//   ANTHROPIC_API_KEY=... node scripts/find-issues.js
 
 const fs = require("node:fs");
 
@@ -33,6 +34,13 @@ const EXCLUDED_REPOS = new Set([
 const REPORT = "issue-report.md";
 const MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-5-5";
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY || "";
+
+// nscale (OpenAI-compatible). Takes priority if both keys are set.
+const NSCALE_KEY = process.env.NSCALE_SERVICE_TOKEN || "";
+const NSCALE_MODEL = process.env.NSCALE_MODEL || "openai/gpt-oss-120b";
+const NSCALE_URL = "https://inference.api.nscale.com/v1/chat/completions";
+const LLM_ENABLED = Boolean(NSCALE_KEY || ANTHROPIC_KEY);
+const LLM_NAME = NSCALE_KEY ? `nscale ${NSCALE_MODEL}` : MODEL;
 
 const API = "https://api.github.com";
 const headers = {
@@ -212,6 +220,47 @@ function heuristicAssess(issue) {
   };
 }
 
+async function askModel(system, content) {
+  if (NSCALE_KEY) {
+    const response = await fetch(NSCALE_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${NSCALE_KEY}`,
+      },
+      body: JSON.stringify({
+        model: NSCALE_MODEL,
+        max_tokens: 1500, // reasoning models spend some of this thinking
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content },
+        ],
+      }),
+    });
+    if (!response.ok) throw new Error(`nscale API error ${response.status}`);
+    const data = await response.json();
+    return data.choices?.[0]?.message?.content || "";
+  }
+
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-api-key": ANTHROPIC_KEY,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      max_tokens: 500,
+      system,
+      messages: [{ role: "user", content }],
+    }),
+  });
+  if (!response.ok) throw new Error(`Anthropic API error ${response.status}`);
+  const data = await response.json();
+  return (data.content || []).map(b => b.text || "").join("");
+}
+
 async function llmAssess(issue) {
   const system =
     "You help a developer pick open-source issues to work on. " +
@@ -231,27 +280,7 @@ async function llmAssess(issue) {
     `"why": one short sentence explaining the difficulty,\n` +
     `"first_steps": one short sentence on where to start looking.`;
 
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-api-key": ANTHROPIC_KEY,
-      "anthropic-version": "2023-06-01",
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 500,
-      system,
-      messages: [{ role: "user", content }],
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`Anthropic API error ${response.status}`);
-  }
-
-  const data = await response.json();
-  const text = (data.content || []).map(b => b.text || "").join("");
+  const text = await askModel(system, content);
   const match = text.match(/\{[\s\S]*\}/);
   if (!match) throw new Error("No JSON in model reply");
 
@@ -270,7 +299,7 @@ async function llmAssess(issue) {
 }
 
 async function assess(issue) {
-  if (ANTHROPIC_KEY) {
+  if (LLM_ENABLED) {
     try {
       return await llmAssess(issue);
     } catch (error) {
@@ -285,9 +314,9 @@ const ICON = { easy: "🟢 easy", medium: "🟡 medium", hard: "🔴 hard" };
 
 function buildReport(items) {
   const today = new Date().toISOString().slice(0, 10);
-  const mode = ANTHROPIC_KEY
-    ? `LLM summaries (${MODEL})`
-    : "heuristic estimates (set ANTHROPIC_API_KEY for LLM summaries)";
+  const mode = LLM_ENABLED
+    ? `LLM summaries (${LLM_NAME})`
+    : "heuristic estimates (set NSCALE_SERVICE_TOKEN or ANTHROPIC_API_KEY for LLM summaries)";
 
   if (!items.length) {
     return `# Issue finder · ${today}\n\nNo matching issues found. Try lowering MIN_STARS or raising MAX_AGE_DAYS.\n`;
