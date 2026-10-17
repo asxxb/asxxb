@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="notebook PR #8089: Add Insert Cell Below to Edit menu">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+    .card { fill: #0d1117; stroke: #30363d; }
+    .divider { stroke: #21262d; }
+    .repo { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
+    .owner, .meta { fill: #8b949e; font-size: 12px; }
+    .title { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+    .add { fill: #3fb950; font-size: 12px; font-weight: 600; }
+    .del { fill: #f85149; font-size: 12px; font-weight: 600; }
+    .avfallback { fill: #21262d; }
+    .initial { fill: #f0f6fc; font-size: 18px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .card { fill: #ffffff; stroke: #d0d7de; }
+      .divider { stroke: #eaeef2; }
+      .repo, .initial { fill: #1f2328; }
+      .owner, .meta { fill: #59636e; }
+      .title { fill: #1f2328; }
+      .avfallback { fill: #eaeef2; }
+      .add { fill: #1a7f37; }
+      .del { fill: #cf222e; }
+    }
+  </style>
+
+  <rect class="card" x="0.5" y="0.5" width="439" height="169" rx="14"/>
+
+  <clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
+  <image href="data:image/png;base64,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" x="20" y="18" width="40" height="40"
+    clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
+
+  <text x="72" y="35" class="repo">notebook</text>
+  <text x="72" y="52" class="owner">jupyter</text>
+
+  <rect x="334" y="20" width="86" height="26" rx="13"
+    fill="#3fb950" fill-opacity="0.15" stroke="#3fb950" stroke-opacity="0.5"/>
+  <circle cx="352" cy="33" r="4" fill="#3fb950"/>
+  <text x="364" y="37.5" fill="#3fb950" font-size="12" font-weight="600">Open</text>
+
+  <line class="divider" x1="20" y1="68" x2="420" y2="68"/>
+
+  <text x="20" y="92" class="title">Add Insert Cell Below to Edit menu</text>
+
+  <text x="20" y="152">
+    <tspan class="add">+4</tspan>
+    <tspan class="del" dx="8">−0</tspan>
+    <tspan class="meta" dx="10">· 3 files</tspan>
+  </text>
+  <text x="420" y="152" text-anchor="end" class="meta">#8089 · Oct 13, 2026</text>
+</svg>

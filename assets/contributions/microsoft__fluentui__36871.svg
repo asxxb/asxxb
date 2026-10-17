@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="fluentui PR #36871: fix: restore menu list keyboard navigation after reconnect">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+    .card { fill: #0d1117; stroke: #30363d; }
+    .divider { stroke: #21262d; }
+    .repo { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
+    .owner, .meta { fill: #8b949e; font-size: 12px; }
+    .title { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+    .add { fill: #3fb950; font-size: 12px; font-weight: 600; }
+    .del { fill: #f85149; font-size: 12px; font-weight: 600; }
+    .avfallback { fill: #21262d; }
+    .initial { fill: #f0f6fc; font-size: 18px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .card { fill: #ffffff; stroke: #d0d7de; }
+      .divider { stroke: #eaeef2; }
+      .repo, .initial { fill: #1f2328; }
+      .owner, .meta { fill: #59636e; }
+      .title { fill: #1f2328; }
+      .avfallback { fill: #eaeef2; }
+      .add { fill: #1a7f37; }
+      .del { fill: #cf222e; }
+    }
+  </style>
+
+  <rect class="card" x="0.5" y="0.5" width="439" height="169" rx="14"/>
+
+  <clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
+  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABTklEQVR42u3aMUoDURSF4RMRy4CdZXAZYqs2Ii7AnaQQGzei9rZKkKzAItgIYpUiRVCwsFSLiThGUil4le+v3pDmcvjfnAzcBMAfptN+eNpf7yXZKDLbVff8fpIkh5fpJtktMtfoaDs37w/Lcz9uJjkpMuhWksnsvJbkrMhc/eQjwCWX8HsI8IcDfBEJA381QIG6wgxkIAOhhV1hV5iBYKAScYUZCO9ABgpQiYCBSoSBAoQSYaASYSAEqEQYqESQ5OuG6iDNZmgFrlvncaG57miDOnza0s/pYzfNQncFxjlYfU6S14usJOkVmWva2cnDonfgXmpt6Q9m516S2yJz9ZMca13/A32JMBC+RBgoQCUiQCgRBgpQgEqEgUqEgQKEEmGgEmEgBKhEGKhEwEABKhEGQokwUIBKBAuY31AdpdnArEB7G35aaK4hbYB/wxsO4jG9a3r5rAAAAABJRU5ErkJggg==" x="20" y="18" width="40" height="40"
+    clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
+
+  <text x="72" y="35" class="repo">fluentui</text>
+  <text x="72" y="52" class="owner">microsoft</text>
+
+  <rect x="334" y="20" width="86" height="26" rx="13"
+    fill="#3fb950" fill-opacity="0.15" stroke="#3fb950" stroke-opacity="0.5"/>
+  <circle cx="352" cy="33" r="4" fill="#3fb950"/>
+  <text x="364" y="37.5" fill="#3fb950" font-size="12" font-weight="600">Open</text>
+
+  <line class="divider" x1="20" y1="68" x2="420" y2="68"/>
+
+  <text x="20" y="92" class="title">fix: restore menu list keyboard navigation</text>
+  <text x="20" y="112" class="title">after reconnect</text>
+
+  <text x="20" y="152">
+    <tspan class="add">+37</tspan>
+    <tspan class="del" dx="8">−0</tspan>
+    <tspan class="meta" dx="10">· 3 files</tspan>
+  </text>
+  <text x="420" y="152" text-anchor="end" class="meta">#36871 · Oct 12, 2026</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="react-spectrum PR #10768: Fix/table state identity">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+    .card { fill: #0d1117; stroke: #30363d; }
+    .divider { stroke: #21262d; }
+    .repo { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
+    .owner, .meta { fill: #8b949e; font-size: 12px; }
+    .title { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+    .add { fill: #3fb950; font-size: 12px; font-weight: 600; }
+    .del { fill: #f85149; font-size: 12px; font-weight: 600; }
+    .avfallback { fill: #21262d; }
+    .initial { fill: #f0f6fc; font-size: 18px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .card { fill: #ffffff; stroke: #d0d7de; }
+      .divider { stroke: #eaeef2; }
+      .repo, .initial { fill: #1f2328; }
+      .owner, .meta { fill: #59636e; }
+      .title { fill: #1f2328; }
+      .avfallback { fill: #eaeef2; }
+      .add { fill: #1a7f37; }
+      .del { fill: #cf222e; }
+    }
+  </style>
+
+  <rect class="card" x="0.5" y="0.5" width="439" height="169" rx="14"/>
+
+  <clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
+  <image href="data:image/png;base64,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" x="20" y="18" width="40" height="40"
+    clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
+
+  <text x="72" y="35" class="repo">react-spectrum</text>
+  <text x="72" y="52" class="owner">adobe</text>
+
+  <rect x="334" y="20" width="86" height="26" rx="13"
+    fill="#3fb950" fill-opacity="0.15" stroke="#3fb950" stroke-opacity="0.5"/>
+  <circle cx="352" cy="33" r="4" fill="#3fb950"/>
+  <text x="364" y="37.5" fill="#3fb950" font-size="12" font-weight="600">Open</text>
+
+  <line class="divider" x1="20" y1="68" x2="420" y2="68"/>
+
+  <text x="20" y="92" class="title">Fix/table state identity</text>
+
+  <text x="20" y="152">
+    <tspan class="add">+471</tspan>
+    <tspan class="del" dx="8">−32</tspan>
+    <tspan class="meta" dx="10">· 4 files</tspan>
+  </text>
+  <text x="420" y="152" text-anchor="end" class="meta">#10768 · Oct 13, 2026</text>
+</svg>

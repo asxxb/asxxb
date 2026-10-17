@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="fumi PR #5: docs: add structured bug report template">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+    .card { fill: #0d1117; stroke: #30363d; }
+    .divider { stroke: #21262d; }
+    .repo { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
+    .owner, .meta { fill: #8b949e; font-size: 12px; }
+    .title { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+    .add { fill: #3fb950; font-size: 12px; font-weight: 600; }
+    .del { fill: #f85149; font-size: 12px; font-weight: 600; }
+    .avfallback { fill: #21262d; }
+    .initial { fill: #f0f6fc; font-size: 18px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .card { fill: #ffffff; stroke: #d0d7de; }
+      .divider { stroke: #eaeef2; }
+      .repo, .initial { fill: #1f2328; }
+      .owner, .meta { fill: #59636e; }
+      .title { fill: #1f2328; }
+      .avfallback { fill: #eaeef2; }
+      .add { fill: #1a7f37; }
+      .del { fill: #cf222e; }
+    }
+  </style>
+
+  <rect class="card" x="0.5" y="0.5" width="439" height="169" rx="14"/>
+
+  <clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
+  <image href="data:image/jpeg;base64,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" x="20" y="18" width="40" height="40"
+    clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
+
+  <text x="72" y="35" class="repo">fumi</text>
+  <text x="72" y="52" class="owner">imaaiagent</text>
+
+  <rect x="334" y="20" width="86" height="26" rx="13"
+    fill="#a371f7" fill-opacity="0.15" stroke="#a371f7" stroke-opacity="0.5"/>
+  <circle cx="352" cy="33" r="4" fill="#a371f7"/>
+  <text x="364" y="37.5" fill="#a371f7" font-size="12" font-weight="600">Merged</text>
+
+  <line class="divider" x1="20" y1="68" x2="420" y2="68"/>
+
+  <text x="20" y="92" class="title">docs: add structured bug report template</text>
+
+  <text x="20" y="152">
+    <tspan class="add">+97</tspan>
+    <tspan class="del" dx="8">−0</tspan>
+    <tspan class="meta" dx="10">· 1 file</tspan>
+  </text>
+  <text x="420" y="152" text-anchor="end" class="meta">#5 · Oct 14, 2026</text>
+</svg>

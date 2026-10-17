@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="freeCodeCamp PR #70853: fix(curriculum): correct queue lab hints">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+    .card { fill: #0d1117; stroke: #30363d; }
+    .divider { stroke: #21262d; }
+    .repo { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
+    .owner, .meta { fill: #8b949e; font-size: 12px; }
+    .title { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+    .add { fill: #3fb950; font-size: 12px; font-weight: 600; }
+    .del { fill: #f85149; font-size: 12px; font-weight: 600; }
+    .avfallback { fill: #21262d; }
+    .initial { fill: #f0f6fc; font-size: 18px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .card { fill: #ffffff; stroke: #d0d7de; }
+      .divider { stroke: #eaeef2; }
+      .repo, .initial { fill: #1f2328; }
+      .owner, .meta { fill: #59636e; }
+      .title { fill: #1f2328; }
+      .avfallback { fill: #eaeef2; }
+      .add { fill: #1a7f37; }
+      .del { fill: #cf222e; }
+    }
+  </style>
+
+  <rect class="card" x="0.5" y="0.5" width="439" height="169" rx="14"/>
+
+  <clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
+  <image href="data:image/jpeg;base64,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" x="20" y="18" width="40" height="40"
+    clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
+
+  <text x="72" y="35" class="repo">freeCodeCamp</text>
+  <text x="72" y="52" class="owner">freeCodeCamp</text>
+
+  <rect x="334" y="20" width="86" height="26" rx="13"
+    fill="#a371f7" fill-opacity="0.15" stroke="#a371f7" stroke-opacity="0.5"/>
+  <circle cx="352" cy="33" r="4" fill="#a371f7"/>
+  <text x="364" y="37.5" fill="#a371f7" font-size="12" font-weight="600">Merged</text>
+
+  <line class="divider" x1="20" y1="68" x2="420" y2="68"/>
+
+  <text x="20" y="92" class="title">fix(curriculum): correct queue lab hints</text>
+
+  <text x="20" y="152">
+    <tspan class="add">+8</tspan>
+    <tspan class="del" dx="8">−8</tspan>
+    <tspan class="meta" dx="10">· 1 file</tspan>
+  </text>
+  <text x="420" y="152" text-anchor="end" class="meta">#70853 · Oct 13, 2026</text>
+</svg>

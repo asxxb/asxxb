@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="setup-bun PR #188: fix: reuse existing latest Bun installation">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+    .card { fill: #0d1117; stroke: #30363d; }
+    .divider { stroke: #21262d; }
+    .repo { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
+    .owner, .meta { fill: #8b949e; font-size: 12px; }
+    .title { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+    .add { fill: #3fb950; font-size: 12px; font-weight: 600; }
+    .del { fill: #f85149; font-size: 12px; font-weight: 600; }
+    .avfallback { fill: #21262d; }
+    .initial { fill: #f0f6fc; font-size: 18px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .card { fill: #ffffff; stroke: #d0d7de; }
+      .divider { stroke: #eaeef2; }
+      .repo, .initial { fill: #1f2328; }
+      .owner, .meta { fill: #59636e; }
+      .title { fill: #1f2328; }
+      .avfallback { fill: #eaeef2; }
+      .add { fill: #1a7f37; }
+      .del { fill: #cf222e; }
+    }
+  </style>
+
+  <rect class="card" x="0.5" y="0.5" width="439" height="169" rx="14"/>
+
+  <clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
+  <image href="data:image/png;base64,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" x="20" y="18" width="40" height="40"
+    clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
+
+  <text x="72" y="35" class="repo">setup-bun</text>
+  <text x="72" y="52" class="owner">oven-sh</text>
+
+  <rect x="334" y="20" width="86" height="26" rx="13"
+    fill="#3fb950" fill-opacity="0.15" stroke="#3fb950" stroke-opacity="0.5"/>
+  <circle cx="352" cy="33" r="4" fill="#3fb950"/>
+  <text x="364" y="37.5" fill="#3fb950" font-size="12" font-weight="600">Open</text>
+
+  <line class="divider" x1="20" y1="68" x2="420" y2="68"/>
+
+  <text x="20" y="92" class="title">fix: reuse existing latest Bun installation</text>
+
+  <text x="20" y="152">
+    <tspan class="add">+173</tspan>
+    <tspan class="del" dx="8">−115</tspan>
+    <tspan class="meta" dx="10">· 5 files</tspan>
+  </text>
+  <text x="420" y="152" text-anchor="end" class="meta">#188 · Oct 13, 2026</text>
+</svg>
