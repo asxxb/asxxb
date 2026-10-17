@@ -27,9 +27,6 @@
 
 
 <br>
-   <!-- SKILLS:START -->
-<p align="center"><img src="./assets/skills/skills.svg" alt="Skills" width="574" /></p>
-<!-- SKILLS:END -->
 
 
 
@@ -57,3 +54,6 @@
 
 
 
+   <!-- SKILLS:START -->
+<p align="center"><img src="./assets/skills/skills.svg" alt="Skills" width="574" /></p>
+<!-- SKILLS:END -->
