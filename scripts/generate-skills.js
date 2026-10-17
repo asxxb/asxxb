@@ -27,60 +27,13 @@ const CATEGORIES = [
       { name: "Python", abbr: "PY", color: "#3670A0" },
       { name: "Java", abbr: "JV", color: "#ED8B00" },
       { name: "JavaScript", abbr: "JS", color: "#F7DF1E" },
-      { name: "HTML5", abbr: "H5", color: "#E34F26" },
-      { name: "PowerShell", abbr: "PS", color: "#5391FE" },
-      { name: "GraphQL", abbr: "GQL", color: "#E10098" },
-      { name: "LaTeX", abbr: "TEX", color: "#008080" },
-    ],
-  },
-  {
-    file: "frameworks",
-    title: "FRAMEWORKS + CLOUD",
-    skills: [
-      { name: "Flutter", abbr: "FL", color: "#02569B" },
-      { name: "Laravel", abbr: "LV", color: "#FF2D20" },
-      { name: "Bootstrap", abbr: "BS", color: "#8511FA" },
-      { name: "Firebase", abbr: "FB", color: "#039BE5" },
-      { name: "GCloud", abbr: "GCP", color: "#4285F4" },
-      { name: "GH Pages", abbr: "GH", color: "#121013" },
-      { name: "Apache", abbr: "AP", color: "#D42029" },
-    ],
-  },
-  {
-    file: "data",
-    title: "DATA + DATABASES",
-    skills: [
-      { name: "PostgreSQL", abbr: "PG", color: "#316192" },
-      { name: "SQL Server", abbr: "SQL", color: "#CC2927" },
-      { name: "Pandas", abbr: "PD", color: "#150458" },
-      { name: "NumPy", abbr: "NP", color: "#013243" },
-    ],
-  },
-  {
-    file: "tools",
-    title: "DEV TOOLS",
-    skills: [
-      { name: "CMake", abbr: "CM", color: "#008FBA" },
-      { name: "Gradle", abbr: "GR", color: "#02303A" },
-      { name: "Postman", abbr: "PM", color: "#FF6C37" },
-      { name: "Insomnia", abbr: "IN", color: "#5849BE" },
-      { name: "OpenSea", abbr: "OS", color: "#2081E2" },
-      { name: "XFCE", abbr: "XF", color: "#2284F2" },
-    ],
-  },
-  {
-    file: "design",
-    title: "DESIGN",
-    skills: [
-      { name: "Adobe", abbr: "AD", color: "#FF0000" },
-      { name: "GIMP", abbr: "GI", color: "#657D8B" },
-      { name: "Illustr.", abbr: "AI", color: "#FF9A00" },
+      { name: "PHP", abbr: "PHP", color: "#777BB4" },
     ],
   },
 ];
 
 // ───────────── Layout ─────────────
-const COLS = 10;         // cards per row
+const COLS = 8;          // cards per row
 const CARD_W = 64;
 const CARD_H = 48;
 const TILE = 26;
