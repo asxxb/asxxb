@@ -21,7 +21,8 @@
 
 
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=ryo-ma&theme=onedark)](https://github.com/asxxb/github-profile-trophy)
+[![trophy](https://github-profile-trophy.vercel.app/?username=asxxb&theme=onedark)](https://github.com/asxxb/github-profile-trophy)
+
 
 
 
