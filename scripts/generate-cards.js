@@ -1,18 +1,26 @@
-
 const fs = require("node:fs");
 const path = require("node:path");
 
+// ───────────── Config ─────────────
 const USER = "asxxb";
 
+// Repos to hide completely ("owner/repo").
 const EXCLUDED_REPOS = new Set([
   "Thegiantsaint/hackrealm",
   "asxxb/pysong",
-]);
+].map(r => r.toLowerCase()));
+
+// PRs into your own repos/forks (e.g. asxxb/leveldb) are usually duplicates
+// of the upstream PR. Set to true if you want them shown anyway.
+const INCLUDE_OWN_REPOS = false;
+
+// Max cards shown (keep it even for the 2-column layout).
+const MAX_CARDS = 12;
+const COLUMNS = 2;
 
 const API = "https://api.github.com";
 const OUTPUT = "assets/contributions";
 const README = "README.md";
-
 const START = "<!-- CONTRIBUTIONS:START -->";
 const END = "<!-- CONTRIBUTIONS:END -->";
 
@@ -22,17 +30,19 @@ const headers = {
   "X-GitHub-Api-Version": "2022-11-28",
 };
 
-const avatarCache = new Map();
+// GitHub's own state colors.
+const STATUS = {
+  Merged: { color: "#a371f7", order: 0 },
+  Open: { color: "#3fb950", order: 1 },
+  Closed: { color: "#f85149", order: 2 },
+};
 
+// ───────────── Helpers ─────────────
 async function get(url) {
   const response = await fetch(url, { headers });
-
   if (!response.ok) {
-    throw new Error(
-      `GitHub API error ${response.status}: ${url}`
-    );
+    throw new Error(`GitHub API error ${response.status}: ${url}`);
   }
-
   return response.json();
 }
 
@@ -56,23 +66,63 @@ function cleanText(value = "") {
     .trim();
 }
 
-async function getAvatarDataUri(owner) {
+// Word-wrap into at most `maxLines` lines, adding "…" if text is cut.
+function wrap(text, maxChars, maxLines) {
+  const words = text.split(" ");
+  const lines = [];
+  let line = "";
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    const next = line ? `${line} ${word}` : word;
+
+    if (next.length <= maxChars) {
+      line = next;
+      continue;
+    }
+
+    if (line) lines.push(line);
+    line = word.length > maxChars ? word.slice(0, maxChars - 1) + "…" : word;
+
+    if (lines.length === maxLines) break;
+  }
+
+  if (lines.length < maxLines && line) lines.push(line);
+
+  const consumed = lines.join(" ").replace(/…$/, "").length;
+  if (lines.length === maxLines && consumed < text.length - 1) {
+    const last = lines[maxLines - 1].replace(/…$/, "");
+    lines[maxLines - 1] =
+      (last.length > maxChars - 1 ? last.slice(0, maxChars - 1) : last).trimEnd() + "…";
+  }
+
+  return lines.slice(0, maxLines);
+}
+
+function formatDate(iso) {
+  return new Date(iso).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+const avatarCache = new Map();
+
+function getAvatarDataUri(owner) {
   if (!avatarCache.has(owner)) {
     avatarCache.set(owner, (async () => {
       try {
         const response = await fetch(
-          `https://github.com/${encodeURIComponent(owner)}.png?size=64`
+          `https://github.com/${encodeURIComponent(owner)}.png?size=80`
         );
-
         if (!response.ok) return null;
 
-        const contentType =
-          response.headers.get("content-type") || "";
-
+        const contentType = response.headers.get("content-type") || "";
         if (!contentType.startsWith("image/")) return null;
 
         const bytes = Buffer.from(await response.arrayBuffer());
-
         if (bytes.length > 200_000) return null;
 
         return `data:${contentType};base64,${bytes.toString("base64")}`;
@@ -81,92 +131,98 @@ async function getAvatarDataUri(owner) {
       }
     })());
   }
-
   return avatarCache.get(owner);
 }
 
-async function createCard(pr, status, summary, index) {
-  const [owner, repoName] = pr.repository_url
-    .split("/")
-    .slice(-2);
+// ───────────── Card ─────────────
+const W = 440;
+const H = 170;
+const FONT = `-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif`;
 
+async function createCard(pr) {
+  const { owner, repo, status, color } = pr;
   const avatar = await getAvatarDataUri(owner);
 
-  const colors = {
-    Merged: "#3fb950",
-    Open: "#58a6ff",
-    Closed: "#8b949e",
-  };
-
-  const color = colors[status];
-
   const avatarMarkup = avatar
-    ? `<image href="${avatar}" x="18" y="16"
-         width="38" height="38"
-         preserveAspectRatio="xMidYMid slice"/>`
-    : `<circle cx="37" cy="35" r="19" fill="#21262d"/>
-       <text x="37" y="40" fill="#f0f6fc"
-         font-size="15" text-anchor="middle"
-         font-weight="600">${escapeXml(owner[0].toUpperCase())}</text>`;
+    ? `<clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
+  <image href="${avatar}" x="20" y="18" width="40" height="40"
+    clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>`
+    : `<rect x="20" y="18" width="40" height="40" rx="9" class="avfallback"/>
+  <text x="40" y="44" text-anchor="middle" class="initial">${escapeXml(owner[0].toUpperCase())}</text>`;
 
-  const title = cleanText(pr.title).slice(0, 43);
-  const description = cleanText(summary).slice(0, 66);
+  const titleLines = wrap(cleanText(pr.title), 46, 2);
+  const titleMarkup = titleLines
+    .map((line, i) =>
+      `<text x="20" y="${92 + i * 20}" class="title">${escapeXml(line)}</text>`)
+    .join("\n  ");
 
-  const statusLabel = {
-    Merged: "✓ Merged",
-    Open: "● Open",
-    Closed: "● Closed",
-  }[status];
+  const pillW = 86;
+  const pillX = W - 20 - pillW;
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg"
-    width="340" height="190" viewBox="0 0 340 190">
-    <rect x="1" y="1" width="338" height="188" rx="14"
-      fill="#0d1117" stroke="#30363d"/>
+  const files = pr.changedFiles === 1 ? "1 file" : `${pr.changedFiles} files`;
 
-    ${avatarMarkup}
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${escapeXml(`${repo} PR #${pr.number}: ${pr.title}`)}">
+  <style>
+    text { font-family: ${FONT}; }
+    .card { fill: #0d1117; stroke: #30363d; }
+    .divider { stroke: #21262d; }
+    .repo { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
+    .owner, .meta { fill: #8b949e; font-size: 12px; }
+    .title { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+    .add { fill: #3fb950; font-size: 12px; font-weight: 600; }
+    .del { fill: #f85149; font-size: 12px; font-weight: 600; }
+    .avfallback { fill: #21262d; }
+    .initial { fill: #f0f6fc; font-size: 18px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .card { fill: #ffffff; stroke: #d0d7de; }
+      .divider { stroke: #eaeef2; }
+      .repo, .initial { fill: #1f2328; }
+      .owner, .meta { fill: #59636e; }
+      .title { fill: #1f2328; }
+      .avfallback { fill: #eaeef2; }
+      .add { fill: #1a7f37; }
+      .del { fill: #cf222e; }
+    }
+  </style>
 
-    <text x="66" y="29" fill="#f0f6fc"
-      font-size="13" font-weight="600">${escapeXml(repoName)}</text>
-    <text x="66" y="47" fill="#8b949e"
-      font-size="10">${escapeXml(owner)}</text>
+  <rect class="card" x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14"/>
 
-    <line x1="17" y1="66" x2="323" y2="66"
-      stroke="#30363d"/>
+  ${avatarMarkup}
 
-    <text x="18" y="89" fill="#f0f6fc"
-      font-size="12" font-weight="600">${escapeXml(title)}</text>
+  <text x="72" y="35" class="repo">${escapeXml(repo.length > 24 ? repo.slice(0, 23) + "…" : repo)}</text>
+  <text x="72" y="52" class="owner">${escapeXml(owner)}</text>
 
-    <text x="18" y="111" fill="#c9d1d9"
-      font-size="10">${escapeXml(description)}</text>
+  <rect x="${pillX}" y="20" width="${pillW}" height="26" rx="13"
+    fill="${color}" fill-opacity="0.15" stroke="${color}" stroke-opacity="0.5"/>
+  <circle cx="${pillX + 18}" cy="33" r="4" fill="${color}"/>
+  <text x="${pillX + 30}" y="37.5" fill="${color}" font-size="12" font-weight="600">${status}</text>
 
-    <rect x="18" y="130" width="91" height="24"
-      rx="12" fill="#21262d"/>
+  <line class="divider" x1="20" y1="68" x2="${W - 20}" y2="68"/>
 
-    <text x="63.5" y="145.5" fill="${color}"
-      font-size="10" text-anchor="middle">${statusLabel}</text>
+  ${titleMarkup}
 
-    <text x="18" y="174" fill="#8b949e"
-      font-size="10">PR #${pr.number}</text>
+  <text x="20" y="152">
+    <tspan class="add">+${pr.additions}</tspan>
+    <tspan class="del" dx="8">−${pr.deletions}</tspan>
+    <tspan class="meta" dx="10">· ${files}</tspan>
+  </text>
+  <text x="${W - 20}" y="152" text-anchor="end" class="meta">#${pr.number} · ${formatDate(pr.date)}</text>
+</svg>`;
 
-    <text x="322" y="174" fill="#58a6ff"
-      font-size="10" text-anchor="end">View PR ↗</text>
-  </svg>`;
-
-  const filename = `pr-${index}.svg`;
-
-  fs.writeFileSync(
-    path.join(OUTPUT, filename),
-    svg,
-    "utf8"
-  );
+  // Stable filename → no pointless diffs when the order changes.
+  const safe = s => s.replace(/[^a-zA-Z0-9_.-]/g, "_");
+  const filename = `${safe(owner)}__${safe(repo)}__${pr.number}.svg`;
+  fs.writeFileSync(path.join(OUTPUT, filename), svg, "utf8");
 
   return {
+    filename,
     image: `./${OUTPUT}/${filename}`,
-    url: pr.html_url,
-    title: pr.title,
+    url: pr.url,
+    alt: `${owner}/${repo} PR #${pr.number}: ${pr.title}`,
   };
 }
 
+// ───────────── Main ─────────────
 async function main() {
   if (!process.env.GITHUB_TOKEN) {
     throw new Error("GITHUB_TOKEN is missing.");
@@ -174,125 +230,125 @@ async function main() {
 
   fs.mkdirSync(OUTPUT, { recursive: true });
 
-  // Search for public pull requests authored by this account.
   const searchUrl = new URL(`${API}/search/issues`);
-
-  searchUrl.searchParams.set(
-    "q",
-    `author:${USER} type:pr`
-  );
+  searchUrl.searchParams.set("q", `author:${USER} type:pr is:public`);
   searchUrl.searchParams.set("sort", "updated");
   searchUrl.searchParams.set("order", "desc");
   searchUrl.searchParams.set("per_page", "100");
 
   const results = await get(searchUrl.toString());
 
-  // Exclude entire repositories before limiting results.
-  const prs = results.items
-    .filter(pr => {
-      const repo = pr.repository_url
-        .split("/")
-        .slice(-2)
-        .join("/");
+  const candidates = results.items.filter(item => {
+    const [owner, repo] = item.repository_url.split("/").slice(-2);
+    const full = `${owner}/${repo}`.toLowerCase();
 
-      return !EXCLUDED_REPOS.has(repo);
-    })
-    .slice(0, 30);
+    if (EXCLUDED_REPOS.has(full)) return false;
+    if (!INCLUDE_OWN_REPOS && owner.toLowerCase() === USER.toLowerCase()) {
+      return false;
+    }
+    return true;
+  });
 
-  const cards = [];
+  // Fetch details (state, additions, deletions, files) in parallel.
+  const prs = await Promise.all(
+    candidates.map(async item => {
+      const [owner, repo] = item.repository_url.split("/").slice(-2);
+      const d = await get(`${item.repository_url}/pulls/${item.number}`);
 
-  for (const pr of prs) {
-    const details = await get(
-      `${pr.repository_url}/pulls/${pr.number}`
-    );
+      const status = d.merged_at ? "Merged" : d.state === "open" ? "Open" : "Closed";
+      const date = d.merged_at || d.closed_at || d.created_at;
 
-    const status = details.merged_at
-      ? "Merged"
-      : details.state === "open"
-        ? "Open"
-        : "Closed";
-
-    const summary = cleanText(pr.body || pr.title);
-
-    cards.push(
-      await createCard(
-        pr,
+      return {
+        owner,
+        repo,
+        number: item.number,
+        title: item.title,
+        url: item.html_url,
         status,
-        summary,
-        cards.length + 1
-      )
-    );
-  }
+        color: STATUS[status].color,
+        date,
+        updated: d.updated_at,
+        additions: d.additions ?? 0,
+        deletions: d.deletions ?? 0,
+        changedFiles: d.changed_files ?? 0,
+      };
+    })
+  );
 
-  // Delete obsolete generated SVG cards.
+  // Merged first, then open, then closed; newest first within each group.
+  prs.sort((a, b) =>
+    STATUS[a.status].order - STATUS[b.status].order ||
+    new Date(b.updated) - new Date(a.updated)
+  );
+
+  const counts = { Merged: 0, Open: 0, Closed: 0 };
+  for (const pr of prs) counts[pr.status]++;
+
+  const shown = prs.slice(0, MAX_CARDS);
+  const cards = [];
+  for (const pr of shown) cards.push(await createCard(pr));
+
+  // Remove SVGs that are no longer used.
+  const keep = new Set(cards.map(c => c.filename));
   for (const file of fs.readdirSync(OUTPUT)) {
-    if (
-      /^pr-\d+\.svg$/.test(file) &&
-      !cards.some((_, index) => file === `pr-${index + 1}.svg`)
-    ) {
+    if (file.endsWith(".svg") && !keep.has(file)) {
       fs.unlinkSync(path.join(OUTPUT, file));
     }
   }
 
-  // Generate three contribution cards per Markdown table row.
+  // HTML table with no header row (Markdown tables force a header).
+  const cellWidth = Math.floor(100 / COLUMNS);
   const rows = [];
-
-  for (let i = 0; i < cards.length; i += 3) {
-    const row = cards.slice(i, i + 3).map(card => {
-      const imagePath = escapeXml(card.image);
-      const url = escapeXml(card.url);
-      const title = escapeXml(card.title);
-
-      return `<a href="${url}"><img src="${imagePath}" width="260" alt="${title}" /></a>`;
-    });
-
-    while (row.length < 3) {
-      row.push("");
-    }
-
-    rows.push(`| ${row.join(" | ")} |`);
+  for (let i = 0; i < cards.length; i += COLUMNS) {
+    const cells = cards.slice(i, i + COLUMNS).map(card =>
+      `<td width="${cellWidth}%" align="center"><a href="${escapeXml(card.url)}"><img src="${escapeXml(card.image)}" alt="${escapeXml(card.alt)}" width="100%" /></a></td>`
+    );
+    while (cells.length < COLUMNS) cells.push(`<td width="${cellWidth}%"></td>`);
+    rows.push(`<tr>${cells.join("")}</tr>`);
   }
 
-  const section = [
-    START,
-    "## Open-source contributions",
-    "",
-    "| Contribution | Contribution | Contribution |",
-    "|:---:|:---:|:---:|",
-    ...rows,
-    "",
-    cards.length
-      ? `*Showing ${cards.length} public pull requests. Updated automatically.*`
-      : "No eligible public pull requests were found.",
-    END,
-  ].join("\n");
+  const summaryLine = [
+    counts.Merged && `${counts.Merged} merged`,
+    counts.Open && `${counts.Open} open`,
+    counts.Closed && `${counts.Closed} closed`,
+  ].filter(Boolean).join(" · ");
 
-  // Replace only the generated section in README.md.
+  const allLink = `https://github.com/search?q=${encodeURIComponent(`author:${USER} type:pr is:public`)}&type=pullrequests`;
+
+  const footer = prs.length > shown.length
+    ? `<sub>Showing ${shown.length} of ${prs.length} public pull requests · <a href="${allLink}">see all</a> · updated automatically</sub>`
+    : `<sub>Showing ${shown.length} public pull requests · updated automatically</sub>`;
+
+  const section = cards.length
+    ? [
+        START,
+        "## Open-source contributions",
+        "",
+        `**${summaryLine}**`,
+        "",
+        "<table>",
+        ...rows,
+        "</table>",
+        "",
+        footer,
+        END,
+      ].join("\n")
+    : [START, "## Open-source contributions", "", "No eligible public pull requests were found.", END].join("\n");
+
+  // Replace only the generated section of README.md.
   const readme = fs.readFileSync(README, "utf8");
-
   const startIndex = readme.indexOf(START);
   const endIndex = readme.indexOf(END);
 
-  if (
-    startIndex === -1 ||
-    endIndex === -1 ||
-    endIndex < startIndex
-  ) {
-    throw new Error(
-      "README.md must contain both contribution markers."
-    );
+  if (startIndex === -1 || endIndex === -1 || endIndex < startIndex) {
+    throw new Error("README.md must contain both contribution markers.");
   }
 
   const updated =
-    readme.slice(0, startIndex) +
-    section +
-    readme.slice(endIndex + END.length);
+    readme.slice(0, startIndex) + section + readme.slice(endIndex + END.length);
 
   fs.writeFileSync(README, updated, "utf8");
-
-  console.log(
-    `Generated ${cards.length} contribution cards.`
-  );
+  console.log(`Generated ${cards.length} contribution cards (${prs.length} eligible PRs).`);
 }
 
 main().catch(error => {
