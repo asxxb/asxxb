@@ -31,8 +31,8 @@
 
 
 <!-- CONTRIBUTIONS:START -->
-                                                                      
-##  <p align="center">Open-source contributions</p>
+## Open-source contributions
+
 **4 merged · 11 open · 1 closed**
 
 <table>
