@@ -25,7 +25,7 @@
   <rect class="card" x="0.5" y="0.5" width="439" height="169" rx="14"/>
 
   <clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
-  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAIAAAABc2X6AAABSUlEQVR4nOzVwW2DMBSH8TrqjR0szwG7eI3ePQYDwCzewyv0SqpSvUaidRogTfQe398XwJGi3+k7vRxsgAEDBgwYMGDAgAEDBgwYMGDAgAEDBnxw8Axu5snbAcBv8+TN+rz37/O89/LN9MZxPM8bhkG+2V3XddM0nWVt28qNxTnncs6C/Tw5Z+ec3JtbjFGkl8UY5d7WmqYppQjzslLKsxL1v0spiXG5lJL8ysq+UiTA5Qwm6jtFtWMqUYsU1Y6RRP1MUW1GEvVrimpHfaJqKapNfaKupMhgoq6nyGCi/kyRqUTdmCIjibo9RUYStSpF6hO1NkXqE7UhRYoTtS1FihO1OUUqE7UzRcoStT9FyhJ1lxQ9IFGv8rB3IYS+7+XtzgshyCNbudMz/xwwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDFg3+GMA4rkEOt3iMFIAAAAASUVORK5CYII=" x="20" y="18" width="40" height="40"
+  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAIAAAABc2X6AAABXUlEQVR4nOzZwW20MBDF8c+fcqMHizqgF7eRu8ugAKjFfbiFXCESq0RRnNnssnaGeft+BZh5p/+B//+eDAej42B0HIyOg9FxMDoORsfB6DgYHQej42B0HIxOZ3C3U/m0zuDXncqnFXjv33bee+1b/sSyLNtunmftW9obx3Fd1+3DMAzaF7XknEspbV+klJxz2nc1E0LYCiEE7bva6Lou51wOzjlrJaqtGGO59iLGqH1dbZcUSYMBE/WZIglUor6lSAKSqDJFEpBE/ZgiiflESSmSmE/UlRRJDCfqeookhhP1a4okJhN1Y4okxhJ1e4okxhJ1V4okZhJ1b4okZhJ1IEUSA4k6liKJgUQdTpHk1Il6MEWSkybq8RRJTpqoKimSVEzUS62H+r6fpqnWa+XjjV7Gx9+l6DgYHQej42B0HIyOg9FxMDoORsfB6DgYHQej42B0HIzu6Qa/BwAA///iuQQ6ogwRVwAAAABJRU5ErkJggg==" x="20" y="18" width="40" height="40"
     clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
 
   <text x="72" y="35" class="repo">next.js</text>
