@@ -41,8 +41,8 @@
   <text x="20" y="92" class="title">fix: recover routes after watchpack eperm</text>
 
   <text x="20" y="152">
-    <tspan class="add">+99</tspan>
-    <tspan class="del" dx="8">−5</tspan>
+    <tspan class="add">+172</tspan>
+    <tspan class="del" dx="8">−12</tspan>
     <tspan class="meta" dx="10">· 5 files</tspan>
   </text>
   <text x="420" y="152" text-anchor="end" class="meta">#100359 · Oct 17, 2026</text>

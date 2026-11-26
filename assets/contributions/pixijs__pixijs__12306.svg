@@ -42,8 +42,8 @@
   <text x="20" y="112" class="title">resolution 1</text>
 
   <text x="20" y="152">
-    <tspan class="add">+115</tspan>
-    <tspan class="del" dx="8">−2</tspan>
+    <tspan class="add">+98</tspan>
+    <tspan class="del" dx="8">−38</tspan>
     <tspan class="meta" dx="10">· 2 files</tspan>
   </text>
   <text x="420" y="152" text-anchor="end" class="meta">#12306 · Oct 13, 2026</text>
