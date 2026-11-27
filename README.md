@@ -33,7 +33,7 @@
 <!-- CONTRIBUTIONS:START -->
 ## Open-source contributions
 
-**5 merged · 9 open · 3 closed**
+**5 merged · 9 open · 4 closed**
 
 <table>
 <tr><td width="50%" align="center"><a href="https://github.com/microsoft/fluentui/pull/36871"><img src="./assets/contributions/microsoft__fluentui__36871.svg" alt="microsoft/fluentui PR #36871: fix: restore menu list keyboard navigation after reconnect" width="100%" /></a></td><td width="50%" align="center"><a href="https://github.com/The-last-signal-project/The-last-signal-/pull/163"><img src="./assets/contributions/The-last-signal-project__The-last-signal-__163.svg" alt="The-last-signal-project/The-last-signal- PR #163: docs: translate documentation index into Japanese" width="100%" /></a></td></tr>
@@ -44,7 +44,7 @@
 <tr><td width="50%" align="center"><a href="https://github.com/juce-framework/JUCE/pull/1773"><img src="./assets/contributions/juce-framework__JUCE__1773.svg" alt="juce-framework/JUCE PR #1773: Direct2D: Fix partial Image::clear while Graphics is active" width="100%" /></a></td><td width="50%" align="center"><a href="https://github.com/oven-sh/setup-bun/pull/188"><img src="./assets/contributions/oven-sh__setup-bun__188.svg" alt="oven-sh/setup-bun PR #188: fix: reuse existing latest Bun installation" width="100%" /></a></td></tr>
 </table>
 
-<sub>Showing 12 of 17 public pull requests · <a href="https://github.com/search?q=author%3Aasxxb%20type%3Apr%20is%3Apublic&type=pullrequests">see all</a> · updated automatically</sub>
+<sub>Showing 12 of 18 public pull requests · <a href="https://github.com/search?q=author%3Aasxxb%20type%3Apr%20is%3Apublic&type=pullrequests">see all</a> · updated automatically</sub>
 <!-- CONTRIBUTIONS:END -->
 
 
