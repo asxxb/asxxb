@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="hermes PR #2340: Regex: Fix UTF-16 encoding of U+10000 in named capture groups">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+    .card { fill: #0d1117; stroke: #30363d; }
+    .divider { stroke: #21262d; }
+    .repo { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
+    .owner, .meta { fill: #8b949e; font-size: 12px; }
+    .title { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+    .add { fill: #3fb950; font-size: 12px; font-weight: 600; }
+    .del { fill: #f85149; font-size: 12px; font-weight: 600; }
+    .avfallback { fill: #21262d; }
+    .initial { fill: #f0f6fc; font-size: 18px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .card { fill: #ffffff; stroke: #d0d7de; }
+      .divider { stroke: #eaeef2; }
+      .repo, .initial { fill: #1f2328; }
+      .owner, .meta { fill: #59636e; }
+      .title { fill: #1f2328; }
+      .avfallback { fill: #eaeef2; }
+      .add { fill: #1a7f37; }
+      .del { fill: #cf222e; }
+    }
+  </style>
+
+  <rect class="card" x="0.5" y="0.5" width="439" height="169" rx="14"/>
+
+  <clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
+  <image href="data:image/png;base64,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" x="20" y="18" width="40" height="40"
+    clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
+
+  <text x="72" y="35" class="repo">hermes</text>
+  <text x="72" y="52" class="owner">meta</text>
+
+  <rect x="334" y="20" width="86" height="26" rx="13"
+    fill="#3fb950" fill-opacity="0.15" stroke="#3fb950" stroke-opacity="0.5"/>
+  <circle cx="352" cy="33" r="4" fill="#3fb950"/>
+  <text x="364" y="37.5" fill="#3fb950" font-size="12" font-weight="600">Open</text>
+
+  <line class="divider" x1="20" y1="68" x2="420" y2="68"/>
+
+  <text x="20" y="92" class="title">Regex: Fix UTF-16 encoding of U+10000 in named</text>
+  <text x="20" y="112" class="title">capture groups</text>
+
+  <text x="20" y="152">
+    <tspan class="add">+63</tspan>
+    <tspan class="del" dx="8">−1</tspan>
+    <tspan class="meta" dx="10">· 3 files</tspan>
+  </text>
+  <text x="420" y="152" text-anchor="end" class="meta">#2340 · Nov 27, 2026</text>
+</svg>

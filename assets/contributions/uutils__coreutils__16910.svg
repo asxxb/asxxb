@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="coreutils PR #16910: cut: keep leading &apos;=&apos; in short option values">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+    .card { fill: #0d1117; stroke: #30363d; }
+    .divider { stroke: #21262d; }
+    .repo { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
+    .owner, .meta { fill: #8b949e; font-size: 12px; }
+    .title { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+    .add { fill: #3fb950; font-size: 12px; font-weight: 600; }
+    .del { fill: #f85149; font-size: 12px; font-weight: 600; }
+    .avfallback { fill: #21262d; }
+    .initial { fill: #f0f6fc; font-size: 18px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .card { fill: #ffffff; stroke: #d0d7de; }
+      .divider { stroke: #eaeef2; }
+      .repo, .initial { fill: #1f2328; }
+      .owner, .meta { fill: #59636e; }
+      .title { fill: #1f2328; }
+      .avfallback { fill: #eaeef2; }
+      .add { fill: #1a7f37; }
+      .del { fill: #cf222e; }
+    }
+  </style>
+
+  <rect class="card" x="0.5" y="0.5" width="439" height="169" rx="14"/>
+
+  <clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
+  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAALmElEQVR4nOxdC3BVxfn/7iPPmxBBHsIfBIRIIPIHKQgolgrRQkamU8AWq85oW9sRUXnZFkbsUC3KjEXbYmeKTttxbCvSTh20jQNCAR9gAwWUVxALlPcrD5KQ3OQmt7PM77uzWfbs2XNzk9wb+H3s5Oye1+7v7tn99vu+c/BTcmMB0jVxkFlEdIqIvsUFEh4hoijSVC6UsADnztKce9VgCwiqI6JxXEhEPYmoFvsEif/mHRpyt2jI7VSYSUS/IKIeXADcSESNEhGVEomvSuWc5mPfWCKqkcrFNXphH8tQIlqFe6e8HENDq9BzWH6tECRIukBE7xJRRLOvEfsuaPY9yRclooclgo9xYapKiIialca+SUSzieiSVNba9AWIe0OzL6TUKWmRwxsSbtE0qL3TLUqdhGTxRmuRKDVG9KhqIiolohnSdQfibzwiJpbVRPQ2ETVwYRzgOgRQN1HHciKahPKkkJXSLy5+9QNE9BwR7ZHKvCQxzuXzxaHG6I6zSXuJ6CUiOimVifJ5fPFkwItSxRKRVivXF3JUc1xr0iNX3qLjHuFaJd9aqGqJGLO6cyZBqFLy7UbgRCIaRkQ+ZbyKV84S0V+hK/J17iSiHxNRNtLL+Mv3eoWI/o5z45Vq3iCiNCIahba1qUyUHgGh+K4joqWSrmebdhLREiIarfwQRYp6E0bivFB97uGDce5oDCFl0nE26SDqvk5RzNuUxGGaitgmoRyvwUrCJCqJnESPuZsPcsBY3KNJc75tGqZcM6HwYezQ3diUPsbyylYe0JA31u7U2BBwUDrfNlWhjW2KdZobO6VqqAuBONQFoU9+hPRVLvQAMa49pTyebmmdco02wVLNjXVJVOZmPqkDMRjKs66OalqqnOsKt+4qVhiF6Em1mAHFr9qXD9BAjHVzYVFJFsnEpPUjIgpyoQbHieiXWD9zEor4b/gALwTmgDiv+AERvcYZIS+P6bf61utDOqPpZdlVfmnD3H/9t0gpNmLTlIIGPKZa/PPUxRVLd59UrdnfV+tmiWx0Hk96oJjat3PGEkvirGB74XUieoYzltjuRJ6NIv0Cb7gggp73PBckMX5ORMs5Y4EXlbwnAt+BYcBN5iZ5z1OxCKsbNxHK+d84Ew+BzTAnmbA+ySYMG2EXwQdc4IC3wIGjOM1IYgIZAFvaDGWfDDFOPs6ZFMRsOKxyDP6cHVDKj2BZaeyBM7GuFbPv50S0FmqMkyyBOT1VIer+LGc0KAQHBzCRHANHjgSOc9HxZHwCx1Cqy6+g67mJD9yMMxG4HOtBG9Ri0Z7qaDKpKYpUqTO4SuA5zKg2cjcW7amOO2ESs8E8cORIoPj3B7geZSmH/iQG3c1cSEQ/440UhtyGzWjjq9BtZYj2/54zbrPwViJ6kDNENF0i7jUszkcS0dfg3dqIfakmk9AGIZvwVDFxm2BbZLzHG6Ye2B8Tw0vSxNAgkcerDjnPIRepCNkzt0Yij+BmkN2p68FNfx2BsxCkc4iI5iiO53TohLLILsevw9qRaiIsLVM4A5+ILIVoOyMH3AiOSmA5jz3CwmlzA7Z18jaWP8fxaBcrM1OjPDOliIRR9+uR/x7C5d5ENMMrSjQDIwjiC8RCg3vgUy5T+Rgsew4o1ozTRPRQiqozEdT9tFT3Z9DGv7jow8JJ/x35ERY97C78IjZSB0vNEHTnVJUSWM1f92A1v4jJZqtMoPj3KcazcsN41oC4O0HcYlws1UUsWx/FI7lKmThUlIOjfVwgE8gkfqKUyRChtj/EmrCzSRnaVnzlrpgI7+I2zqgE9oLtXxePzChT8p0RJvtnMTjqphIoAm2+JKLHXFyQlQ4uyM4E0zwQAEefcU/1QxH+HfQiN2lwPyTlJexQLuP/EJsz33/lvmviRQSBK9Addyr7dEjFFYdX2IT/boRdcAX3wBIsZRYq60FVruONTgxTGyPgaDI0lhazMCFG733OWAQ+dkYxtbEEHMWgEigioG7njAaDeKMTw9TGO0wmffGCygZZx9FgOG+kAKJK3hamNnaDTaBYJXA+rK1uqsxIJW8Hn3FcpYHZGU6GXS1uyk33meJicM94LURubQzB2T5NJvBp/HWTMS4BSXpEzU6bLhl+m5kvhty0gLs2EKUatcgCPrTRDenw5sUIFJbZD11mYH6L8iucsUUw0nyet3Xwka83b1sharRdXv6X1tB0grc9YLTmpUgVEUy0j8oEvoUo0L6wDZqc5Z7fgNxRHT5qfAPSR31GdM2yVpFuzsvMd1OR1pdfsvH1emnbTnDTF/aCD2QCWc6gay7jAg1MoR5aVIYjbkaIwIReOSYjRgsM6xJyi5eOnK2PfNayyEqmK3kZD4KbMzI3KoGMyUpexmCoO9Y4Vlm3281qXdQ7b24o6HeqTwyhoJ9G98gy/og1jU1791fV2axpZRSjbU54QMk7Evgw2DZhoZI3Ykd1+EJlOGJ0fXbNCN42p6Cn6/trTxT0fCw3LTCC8zrsKr/kNVg8A6G9Jlmsez1MNV0NRUyg7I3SoQB+U/PYJiEz6Ds9slvoIaW4BfK7ZBYNys0I7K+sL62JNLdQQ/rnpOcuLOz19OQ+ecsNT85l+dPh8icPVYdPKcUmPO7UwxQpggpz3ilG+reINLWRQ3gpxVrf2jh18B5/NFhoMctWnQs3btxbWSdslDSya3bhdenBSeSjDOeT8G5DMPL5He8d+v9YgbsIffIwTFQ2sgqWa20PzMRSrgsXGCC08grVxG1Cv0Ba401ds6YpxVfCR5mhYGDogJyM20XKDPrzyUdB80lQJw5fWFR6vm4X5y0gZtb7OGNAlIhOwCK9z6kH6gIsX4CTWQcRoXWri9oTk5yg379m0sDNWf60CVyWSFyMNHx4/6YjE2sjzbbLuHyoJ04rsD0Y+6wDLFlqcPK7LtYZceM/YxB2lZpIc/OcrcdnBQJNCXdKpYUjB+Z9emKWB/K47qbl6/vgoMzJUq0+wir8WCPncoEGfXCdDYbrxFDR0FR9sbl+49huXb5NPp+nJZyTVDRE9q7ce2TCtorGc5rdOvgQC3PXlbtayEBEKDj+KG4EfhMhD24yHu/unoe5516oQk9A5emHgKTLFdlf0XhmV3ndH0d2Cw3KSfMXKNfyhJN19e8s2nFixraKRtmf3R3hKuKzA9+AsXgwxu0IwlS+ywcbkAsH0n4uUOE0BjJKPQQfuuF5xFS3wPQBeZPvu7H7gt7ZaUWuFhZGlKqP1IRLSk6Vr1r9nypdz38DYRuJwHaTgcFEYBY88Ynyg+wzTEY0IJQRGtUjY3x+bvaYGzLT830+6s5vqUdF9ECUzp2tbzxcVn2p9OMztR+dqYvU87kaHNZElMWLepj5w14J5ADEEfAHV2FyWamEt6n4Ah8TOwY742KUN4GQtnaNpiN2hyfIZTDDD0X0rWm5dhDDjlDj8vB3d6IDSN1edx2n8WDxviHKvrbAEOl+6uM9XtqXkNdd/ebdWhmv5FXsUPLyC4utmjAspcDh3rq817a1msA0F6cTz9yMTNl/gMeorUW+R7Gio5rMVYS22U1kcWKUpturSaxOfoIAxC3KvqMKoYlGMe4h31PEc98PlUb+JqFTGqW/dPJ99uRZqAc+u1sbfRjLMQHo7uWUyhLx2ZN4Kj8RL5vsxw35c5xyZL8XnMWHJXaDhC8Rq1wpqQ5ZUCV6wW87HN6zMRY+DCfcg8h7HpqGQ3GW30BoN/xU+XVTIc2Ms62tmkScJOR+SNJJnpLvUAKzW2apDEu3PerSrQNkD4YX1UJtY/NsN8zGY6F+gHGa8th0RGIDbgB1K8VKJak+wMgDvWlV0FFJt/qxsl8mg2RgDSw3aBmWe9VSWWvTThgqnpPKovjeQcqQ5SReP4O81vAZ5LVX22eQr32IOwEf4jbJP0DCceW7fV2lnhuVFF7GVNjporjGVYsiGD91VpApIEik27hQwr0419M3t642Sfr/DuN/AwA7UJ6EHGMjSAAAAABJRU5ErkJggg==" x="20" y="18" width="40" height="40"
+    clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
+
+  <text x="72" y="35" class="repo">coreutils</text>
+  <text x="72" y="52" class="owner">uutils</text>
+
+  <rect x="334" y="20" width="86" height="26" rx="13"
+    fill="#3fb950" fill-opacity="0.15" stroke="#3fb950" stroke-opacity="0.5"/>
+  <circle cx="352" cy="33" r="4" fill="#3fb950"/>
+  <text x="364" y="37.5" fill="#3fb950" font-size="12" font-weight="600">Open</text>
+
+  <line class="divider" x1="20" y1="68" x2="420" y2="68"/>
+
+  <text x="20" y="92" class="title">cut: keep leading &apos;=&apos; in short option values</text>
+
+  <text x="20" y="152">
+    <tspan class="add">+189</tspan>
+    <tspan class="del" dx="8">−17</tspan>
+    <tspan class="meta" dx="10">· 2 files</tspan>
+  </text>
+  <text x="420" y="152" text-anchor="end" class="meta">#16910 · Nov 27, 2026</text>
+</svg>

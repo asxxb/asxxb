@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="transitous PR #2744: website: Categorize apps">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+    .card { fill: #0d1117; stroke: #30363d; }
+    .divider { stroke: #21262d; }
+    .repo { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
+    .owner, .meta { fill: #8b949e; font-size: 12px; }
+    .title { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+    .add { fill: #3fb950; font-size: 12px; font-weight: 600; }
+    .del { fill: #f85149; font-size: 12px; font-weight: 600; }
+    .avfallback { fill: #21262d; }
+    .initial { fill: #f0f6fc; font-size: 18px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .card { fill: #ffffff; stroke: #d0d7de; }
+      .divider { stroke: #eaeef2; }
+      .repo, .initial { fill: #1f2328; }
+      .owner, .meta { fill: #59636e; }
+      .title { fill: #1f2328; }
+      .avfallback { fill: #eaeef2; }
+      .add { fill: #1a7f37; }
+      .del { fill: #cf222e; }
+    }
+  </style>
+
+  <rect class="card" x="0.5" y="0.5" width="439" height="169" rx="14"/>
+
+  <clipPath id="av"><rect x="20" y="18" width="40" height="40" rx="9"/></clipPath>
+  <image href="data:image/png;base64,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" x="20" y="18" width="40" height="40"
+    clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
+
+  <text x="72" y="35" class="repo">transitous</text>
+  <text x="72" y="52" class="owner">public-transport</text>
+
+  <rect x="334" y="20" width="86" height="26" rx="13"
+    fill="#a371f7" fill-opacity="0.15" stroke="#a371f7" stroke-opacity="0.5"/>
+  <circle cx="352" cy="33" r="4" fill="#a371f7"/>
+  <text x="364" y="37.5" fill="#a371f7" font-size="12" font-weight="600">Merged</text>
+
+  <line class="divider" x1="20" y1="68" x2="420" y2="68"/>
+
+  <text x="20" y="92" class="title">website: Categorize apps</text>
+
+  <text x="20" y="152">
+    <tspan class="add">+32</tspan>
+    <tspan class="del" dx="8">−9</tspan>
+    <tspan class="meta" dx="10">· 1 file</tspan>
+  </text>
+  <text x="420" y="152" text-anchor="end" class="meta">#2744 · Nov 27, 2026</text>
+</svg>
